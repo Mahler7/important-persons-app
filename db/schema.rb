@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160212193018) do
+ActiveRecord::Schema.define(version: 20160212223848) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name",                limit: 255
+    t.text     "description",         limit: 65535
+    t.datetime "date"
+    t.datetime "reminder"
+    t.integer  "important_person_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "important_people", force: :cascade do |t|
+    t.string   "first_name",   limit: 255
+    t.string   "last_name",    limit: 255
+    t.string   "email",        limit: 255
+    t.string   "phone_number", limit: 255
+    t.string   "image_url",    limit: 255
+    t.integer  "user_id",      limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "item_name",   limit: 255
+    t.string   "url",         limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "message",             limit: 65535
+    t.string   "message_format",      limit: 255
+    t.text     "email_template",      limit: 65535
+    t.integer  "important_person_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -30,5 +68,13 @@ ActiveRecord::Schema.define(version: 20160212193018) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wishlist_items", force: :cascade do |t|
+    t.integer  "important_person_id", limit: 4
+    t.integer  "item_url_id",         limit: 4
+    t.boolean  "favorite",                      default: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+  end
 
 end
