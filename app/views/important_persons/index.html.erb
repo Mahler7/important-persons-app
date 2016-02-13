@@ -1,1 +1,8 @@
 <h1>Important People</h1>
+
+<% @important_persons.each do |important_person| %>
+  <img src="<%= important_person.image_url %>" class="img-responsive">
+  <h2> Name: <%= important_person.first_name %> <%= important_person.last_name %></h2>
+  <p>Email: <%= important_person.email %></p>
+  <p>Phone: <%= important_person.phone_number %></p>
+<% end %>

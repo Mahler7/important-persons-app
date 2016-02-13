@@ -1,0 +1,33 @@
+<h1>Edit an Important Person</h1>
+
+<%= form_tag "/important_persons/#{@important_person.id}", method: :patch do %>
+
+  <div>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name, @important_person.first_name %>
+  </div>
+
+  <div>
+    <%= label_tag :last_name %>
+    <%= text_field_tag :last_name, @important_person.last_name %>
+  </div>
+
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, @important_person.email %>
+  </div>
+
+  <div>
+    <%= label_tag :phone_number %>
+    <%= text_field_tag :phone_number, @important_person.phone_number %>
+  </div>
+
+  <div>
+    <%= label_tag :image_url %>
+    <%= text_field_tag :image_url, @important_person.image_url %>
+  </div>
+
+  <%= submit_tag "Edit Person" %>
+
+<% end %>
+
