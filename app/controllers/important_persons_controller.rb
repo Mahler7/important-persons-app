@@ -12,7 +12,13 @@ class ImportantPersonsController < ApplicationController
 
   def create
 
-    @important_person = ImportantPerson.create({first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], image_url: params[:image_url], user_id: params[:user_id]})
+    @important_person = ImportantPerson.create({
+      first_name: params[:first_name], 
+      last_name: params[:last_name], 
+      email: params[:email], 
+      phone_number: params[:phone_number], 
+      image_url: params[:image_url], 
+      user_id: params[:user_id]})
 
     @event = @important_person.event
 
@@ -37,7 +43,13 @@ class ImportantPersonsController < ApplicationController
 
     @important_person = ImportantPerson.find(params[:id])
 
-    @important_person.update({first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], image_url: params[:image_url], user_id: params[:user_id]})
+    @important_person.update({
+      first_name: params[:first_name], 
+      last_name: params[:last_name], 
+      email: params[:email], 
+      phone_number: params[:phone_number], 
+      image_url: params[:image_url], 
+      user_id: params[:user_id]})
 
     redirect_to "/important_persons/#{@important_person.id}"
 

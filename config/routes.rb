@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   
   devise_for :users
+  # devise_scope :user do
+  #    authenticated :user do
+  #      root 'links#index', as: :authenticated_root
+  #    end
+
+  #    unauthenticated do
+  #      root 'devise/registrations#new', as: :unauthenticated_root
+  #    end
+  #  end
   root 'important_persons#index'
   
   get '/' => 'important_persons#index'
@@ -17,5 +26,12 @@ Rails.application.routes.draw do
   get '/events/:id/edit' => 'events#edit'
   patch '/events/:id' => 'events#update'
   delete '/events/:id' => 'events#destroy'
+
+  get '/wishlist_items/new' => 'wishlist_items#new'
+  post '/wishlist_items' => 'wishlist_items#create'
+  get '/wishlist_items/:id' => 'wishlist_items#show'
+
+  get '/messages/new' => 'messages#new'
+  post '/messages' => 'messages#create'
 
 end

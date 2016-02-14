@@ -5,4 +5,7 @@
   <h2> Name: <%= important_person.first_name %> <%= important_person.last_name %></h2>
   <p>Email: <%= important_person.email %></p>
   <p>Phone: <%= important_person.phone_number %></p>
+  <%= link_to "New", "/important_persons/new" %>
+  <%= link_to "Edit", "/important_persons/#{important_person.id}/edit" %>
+  <%= link_to "Delete", "/important_persons/#{important_person.id}", method: :delete, data:{confirm: "Are you sure you want to delete this product?"} %>
 <% end %>
