@@ -14,6 +14,8 @@ class ImportantPersonsController < ApplicationController
 
     @important_person = ImportantPerson.create({first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], image_url: params[:image_url], user_id: params[:user_id]})
 
+    @event = @important_person.event
+
     redirect_to "/"
 
   end

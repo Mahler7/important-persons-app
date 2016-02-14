@@ -1,0 +1,27 @@
+<h1>Add an Event</h1>
+
+<%= form_tag '/events', method: :post do %>
+  <div>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
+    <%= select_tag(:important_person_id, options_for_select([['Anniversary'], ['Baptism'], ['Bar mitzvah'], ['Bat mitzvah'], ['Birthday'], ['Christmas'], ['Communion'], ['Easter'], ['Father\'s Day'], ['Graduation'], ['Mother\'s Day'], ['New Year\'s'], ['Sweetest Day'], ['Thanksgiving'], ['Valentine\'s Day'], ['Wedding'], ['Other']])) %>
+  </div>
+
+  <div>
+    <%= label_tag :date %>
+    <%= text_field_tag :date %>
+  </div>
+
+  <div>
+    <%= label_tag :reminder %>
+    <%= text_field_tag :reminder %>
+  </div>
+
+  <div>
+    <%= label_tag :description %>
+    <%= text_field_tag :description %>
+  </div>
+
+  <%= submit_tag "Add Event" %>
+
+<% end %>

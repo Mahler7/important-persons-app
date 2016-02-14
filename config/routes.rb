@@ -11,4 +11,11 @@ Rails.application.routes.draw do
   patch '/important_persons/:id' => 'important_persons#update'
   delete '/important_persons/:id' => 'important_persons#destroy'
 
+  get '/events/new' => 'events#new'
+  post '/events' => 'events#create'
+  get 'events/:id' => 'events#show'
+  get '/events/:id/edit' => 'events#edit'
+  patch '/events/:id' => 'events#update'
+  delete '/events/:id' => 'events#destroy'
+
 end
