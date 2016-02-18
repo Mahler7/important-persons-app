@@ -3,6 +3,7 @@ class WishlistItemsController < ApplicationController
   def index
 
     @wishlist_items = WishlistItem.all
+    @wishlist_items = WishlistItem.order(:important_person_id)
 
   end
 
@@ -23,7 +24,7 @@ class WishlistItemsController < ApplicationController
       important_person_id: params[:important_person_id]
       })
 
-    redirect_to "/wishlist_items/#{@wishlist_items.id}"
+    redirect_to "/wishlist_items/#{@wishlist_item.id}"
 
   end
 
@@ -41,8 +42,6 @@ class WishlistItemsController < ApplicationController
 
     @wishlist_item = WishlistItem.find(params[:id])
     @important_person = ImportantPerson.find_by(id: @wishlist_item.important_person.id)
-    p @wishlist_item.favorite
-    p '****************'
 
   end
 
@@ -50,7 +49,7 @@ class WishlistItemsController < ApplicationController
 
     @wishlist_item = WishlistItem.find(params[:id])
 
-    if params[:favorite] == nil
+    if params[:favorite] == null
       fave = false
     else
       fave = true
@@ -70,6 +69,11 @@ class WishlistItemsController < ApplicationController
   end
 
   def destroy
+
+    @wishlist_item = WishlistItem.find(params[:id])
+    @wishlist_item.destroy
+
+    redirect_to "/wishlist_items"
 
   end
 

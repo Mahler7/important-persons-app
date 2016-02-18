@@ -1,0 +1,15 @@
+<h1>Wishlist Items</h1>
+
+<% @wishlist_items.each do |wishlist_item| %>
+  <h1><%= wishlist_item.important_person.first_name %> <%= wishlist_item.important_person.last_name %></h1>
+  <h4><%= wishlist_item.item_name %></h4>
+  <p>Item Link: <%= link_to "Buy Here", wishlist_item.item_url %></p>
+  <img src ="<%= wishlist_item.image_url %>" class="img-responsive">
+  <p>Description: <%= wishlist_item.description %></p>
+  <div>
+    <%= link_to "New", "/wishlist_items/new" %>
+    <%= link_to "Edit", "/wishlist_items/#{wishlist_item.id}/edit" %>
+    <%= link_to "Delete", "/wishlist_items/#{wishlist_item.id}", method: :delete, data:{confirm: "Are you sure you want to delete this wishlist?"} %>
+  </div>
+
+<% end %>

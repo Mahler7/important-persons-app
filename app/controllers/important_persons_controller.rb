@@ -18,7 +18,7 @@ class ImportantPersonsController < ApplicationController
       email: params[:email], 
       phone_number: params[:phone_number], 
       image_url: params[:image_url], 
-      user_id: params[:user_id]})
+      user_id: params[current_user.id]})
 
 
     redirect_to "/"
@@ -48,8 +48,7 @@ class ImportantPersonsController < ApplicationController
       last_name: params[:last_name], 
       email: params[:email], 
       phone_number: params[:phone_number], 
-      image_url: params[:image_url], 
-      user_id: params[:user_id]})
+      image_url: params[:image_url]})
 
     redirect_to "/important_persons/#{@important_person.id}"
 

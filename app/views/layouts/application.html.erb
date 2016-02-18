@@ -8,6 +8,20 @@
 </head>
 <body>
 
+<ul class = "nav">
+  
+
+  <% if user_signed_in? %>
+    <li> signed in: <%= current_user.email %></li>
+  <% elsif user_signed_in? == false %>
+    <li><%= link_to "Sign In", "/users/sign_in" %></li>
+  <% else %>
+    <li><a href="/users/sign_up">Sign Up</a></li>
+  <% end %>
+  
+  <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
+</ul>
+
 <%= link_to "Home", "/" %>
 
 <% flash.each do |name, message| %>
