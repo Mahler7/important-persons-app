@@ -12,4 +12,9 @@
   <%= submit_tag "Create New Event" %>
 <% end %>
 
+<%= form_tag '/wishlist_items/new', method: :get do %>
+  <%= hidden_field_tag :important_person_id, @important_person.id %>
+  <%= submit_tag "Create New Wishlist" %>
+<% end %>
+
 

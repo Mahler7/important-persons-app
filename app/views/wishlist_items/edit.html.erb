@@ -1,0 +1,34 @@
+<h1>Edit a Wishlist</h1>
+
+<%= form_tag "/wishlist_items/#{@wishlist_item.id}", method: :patch do %>
+
+  <div class="item-name">
+    <%= label_tag :item_name %>
+    <%= text_field_tag :item_name, @wishlist_item.item_name %>
+  </div>
+
+  <div class="item-url">
+    <%= label_tag :item_url %>
+    <%= text_field_tag :item_url, @wishlist_item.item_url %>
+  </div>
+
+  <div class="wishlist-image-url">
+    <%= label_tag :image_url %>
+    <%= text_field_tag :image_url, @wishlist_item.image_url %>
+  </div>
+
+  <div class="wishlist-description">
+    <%= label_tag :description %>
+    <%= text_field_tag :description, @wishlist_item.description %>
+  </div>
+
+  <div class="favorite">
+    <%= label_tag :favorite %>
+    <%= check_box_tag :favorite, @wishlist_item.favorite %>
+  </div>
+
+  <%= hidden_field_tag(:important_person_id, @important_person.id) %>
+
+  <%= submit_tag "Edit Item" %>
+
+<% end %>

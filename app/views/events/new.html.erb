@@ -1,6 +1,6 @@
 <h1>Add an Event</h1>
 
-<%= form_tag '/events', method: :post do %>
+<%= form_tag "/events", method: :post do %>
   
 
   <div class="event-name">
@@ -24,7 +24,7 @@
     <%= text_field_tag :description %>
   </div>
 
-  <%= hidden_field(:important_person_id, @important_person.id) %>
+  <%= hidden_field_tag(:important_person_id, @important_person.id) %>
 
   <%= submit_tag "Add Event" %>
 

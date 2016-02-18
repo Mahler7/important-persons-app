@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   get '/wishlist_items/new' => 'wishlist_items#new'
   post '/wishlist_items' => 'wishlist_items#create'
   get '/wishlist_items/:id' => 'wishlist_items#show'
-  get '/wishlist_items/:id' => 'wishlist_items#edit'
+  get '/wishlist_items/:id/edit' => 'wishlist_items#edit'
   patch '/wishlist_items/:id' => 'wishlist_items#update'
   delete '/wishlist_items/:id' => 'wishlist_items#destroy'
 
