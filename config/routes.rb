@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'important_persons#index'
   
   get '/' => 'important_persons#index'
+  get '/important_persons' => 'important_persons#index'
   get '/important_persons/new' => 'important_persons#new'
   post '/important_persons' => 'important_persons#create'
   get '/important_persons/:id' => 'important_persons#show'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   patch '/important_persons/:id' => 'important_persons#update'
   delete '/important_persons/:id' => 'important_persons#destroy'
 
+  get '/events' => 'events#index'
   get '/events/new' => 'events#new'
   post '/events' => 'events#create'
   get 'events/:id' => 'events#show'
@@ -27,9 +29,13 @@ Rails.application.routes.draw do
   patch '/events/:id' => 'events#update'
   delete '/events/:id' => 'events#destroy'
 
+  get '/wishlist_items' => 'wishlist_items#index'
   get '/wishlist_items/new' => 'wishlist_items#new'
   post '/wishlist_items' => 'wishlist_items#create'
   get '/wishlist_items/:id' => 'wishlist_items#show'
+  get '/wishlist_items/:id' => 'wishlist_items#edit'
+  patch '/wishlist_items/:id' => 'wishlist_items#update'
+  delete '/wishlist_items/:id' => 'wishlist_items#destroy'
 
   get '/messages/new' => 'messages#new'
   post '/messages' => 'messages#create'

@@ -2,14 +2,14 @@
 <img src="<%= @important_person.image_url %>" class="img-responsive">
 <p> <%= @important_person.email %></p>
 <p> <%= @important_person.phone_number %></p>
+<% @events.each do |event| %>
+  <h5>Upcoming Event: <%= link_to event.name, "/events/#{event.id}" %> </h5>
+<% end %>
 
-<% if @important_person.events == nil %>
-  <%= form_tag '/events/new', method: :get do %>
-    <%= hidden_field_tag :important_person_id, @important_person.id %>
-    <% end %>
-    <%= submit_tag "Create New Event" %>
-<% else %>
-  <%= link_to "#{@important_person.events.name}", "/events/#{@event.id}" %>
+
+<%= form_tag '/events/new', method: :get do %>
+  <%= hidden_field_tag :important_person_id, @important_person.id %>
+  <%= submit_tag "Create New Event" %>
 <% end %>
 
 

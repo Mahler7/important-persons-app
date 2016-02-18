@@ -20,7 +20,6 @@ class ImportantPersonsController < ApplicationController
       image_url: params[:image_url], 
       user_id: params[:user_id]})
 
-    @event = @important_person.event
 
     redirect_to "/"
 
@@ -29,6 +28,7 @@ class ImportantPersonsController < ApplicationController
   def show
 
     @important_person = ImportantPerson.find_by(id: params[:id])
+    @events = @important_person.events
 
   end
 

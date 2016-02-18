@@ -1,6 +1,14 @@
 class WishlistItemsController < ApplicationController
 
+  def index
+
+    @wishlist_items = WishlistItem.all
+
+  end
+
   def new
+
+    @important_person = ImportantPerson.find_by(id: params[:important_person_id])
 
   end
 

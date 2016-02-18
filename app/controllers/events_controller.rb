@@ -1,5 +1,12 @@
 class EventsController < ApplicationController
 
+  def index
+
+    @events = Event.all
+    @events = Event.order(:date)
+    
+  end
+
   def new
 
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
@@ -23,7 +30,13 @@ class EventsController < ApplicationController
 
     @event = Event.find_by(id: params[:id])
     @image = @event.important_person.image_url
-    
+
+  end
+
+  def edit
+
+    @event = Event.find(params[:id])
+    @important_person = ImportantPerson.find_by(id: @event.important_person.id)
 
   end
 
@@ -34,9 +47,11 @@ class EventsController < ApplicationController
     @event.update({
       name: params[:name],
       description: params[:description], 
-      date: params[:date], 
-      reminder: params[:reminder], 
+      date: params[:event][:date], 
+      reminder: params[:event][:reminder], 
       important_person_id: params[:important_person_id]})
+
+    render :show
 
   end
 
@@ -45,7 +60,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
-    redirect_to "/important_persons/#{@important_persons.id}"
+    redirect_to "/events"
 
   end
 
