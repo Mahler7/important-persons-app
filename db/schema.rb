@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213180552) do
+ActiveRecord::Schema.define(version: 20160218011716) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name",                limit: 255
@@ -71,10 +71,13 @@ ActiveRecord::Schema.define(version: 20160213180552) do
 
   create_table "wishlist_items", force: :cascade do |t|
     t.integer  "important_person_id", limit: 4
-    t.integer  "item_url_id",         limit: 4
-    t.boolean  "favorite",                      default: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+    t.boolean  "favorite",                          default: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "item_name",           limit: 255
+    t.text     "item_url",            limit: 65535
+    t.text     "image_url",           limit: 65535
+    t.text     "description",         limit: 65535
   end
 
 end

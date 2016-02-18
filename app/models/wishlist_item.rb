@@ -1,3 +1,3 @@
 class WishlistItem < ActiveRecord::Base
-  has_many :items
+  belongs_to :important_person
 end
