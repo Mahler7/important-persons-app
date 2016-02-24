@@ -1,13 +1,39 @@
-<h1>Wishlist Item for <%= @first_name %> <%= @last_name %></h1>
+<h1>Wishlist Item for <%= @wishlist_item.important_person.full_name %></h1>
 <img src ="<%= @image %>" class="img-responsive">
 <h4><%= @wishlist_item.item_name %></h4>
-<p>Item Link: <%= link_to "Buy Here", @wishlist_item.item_url %></p>
-<img src ="<%= @wishlist_item.image_url %>" class="img-responsive">
-<p>Description: <%= @wishlist_item.description %></p>
+
+<div>
+  <% if @wishlist_item.item_url == "" %>
+    <%= link_to "Add Item URL", "/wishlist_items/#{@wishlist_item.id}/edit" %>
+  <% else %>
+    <p>Item Link: <%= link_to "Buy Here", @wishlist_item.item_url %></p>
+  <% end %>
+</div>
+
+<div>
+  <% if @wishlist_item.image_url == "" %>
+    <%= link_to "Add Image URL", "/wishlist_items/#{@wishlist_item.id}/edit" %>
+  <% else %>
+    <img src ="<%= @wishlist_item.image_url %>" class="img-responsive">
+  <% end %>
+</div>
+
+<div>
+  <% if @wishlist_item.description == "" %>
+    <%= link_to "Add Description", "/wishlist_items/#@wishlist_item.id}/edit" %>
+  <% else %>
+    <p>Description: <%= @wishlist_item.description %></p>
+  <% end %>
+</div>
+
 <div>
   <%= link_to "New", "/wishlist_items/new" %>
   <%= link_to "Edit", "/wishlist_items/#{@wishlist_item.id}/edit" %>
   <%= link_to "Delete", "/events/#{@wishlist_item.id}", method: :delete, data:{confirm: "Are you sure you want to delete this wishlist?"} %>
+</div>
+
+<div>
+  <%= link_to "Return to #{@wishlist_item.important_person.full_name}\'s Profile", "/important_persons/#{@wishlist_item.important_person.id}" %>
 </div>
 
 

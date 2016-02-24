@@ -37,7 +37,12 @@ Rails.application.routes.draw do
   patch '/wishlist_items/:id' => 'wishlist_items#update'
   delete '/wishlist_items/:id' => 'wishlist_items#destroy'
 
+  get '/messages' => 'messages#index'
   get '/messages/new' => 'messages#new'
   post '/messages' => 'messages#create'
+  get '/messages/:id' => 'messages#show'
+  get '/messages/:id/edit' => 'messages#edit'
+  patch '/messages/:id' => 'messages#update'
+  delete '/message/:id' => 'messages#destroy'
 
 end

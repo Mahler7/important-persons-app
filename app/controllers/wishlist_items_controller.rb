@@ -1,7 +1,7 @@
 class WishlistItemsController < ApplicationController
 
   def index
-
+    
     @wishlist_items = WishlistItem.all
     @wishlist_items = WishlistItem.order(:important_person_id)
 
@@ -24,6 +24,15 @@ class WishlistItemsController < ApplicationController
       important_person_id: params[:important_person_id]
       })
 
+    if params[:favorite] == nil
+      fave = false
+    else
+      fave = true
+    end
+
+
+    flash[:success] = "Wishlist Item Created"
+
     redirect_to "/wishlist_items/#{@wishlist_item.id}"
 
   end
@@ -32,8 +41,6 @@ class WishlistItemsController < ApplicationController
 
     @wishlist_item = WishlistItem.find(params[:id])
 
-    @first_name = @wishlist_item.important_person.first_name
-    @last_name = @wishlist_item.important_person.last_name
     @image = @wishlist_item.important_person.image_url
 
   end
@@ -49,7 +56,7 @@ class WishlistItemsController < ApplicationController
 
     @wishlist_item = WishlistItem.find(params[:id])
 
-    if params[:favorite] == null
+    if params[:favorite] == nil
       fave = false
     else
       fave = true
@@ -66,12 +73,16 @@ class WishlistItemsController < ApplicationController
 
     render :show
 
+    flash[:success] = "Wishlist Item Information Changed"
+
   end
 
   def destroy
 
     @wishlist_item = WishlistItem.find(params[:id])
     @wishlist_item.destroy
+
+    flash[:success] = "Wishlist Item Deleted"
 
     redirect_to "/wishlist_items"
 

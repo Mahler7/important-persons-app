@@ -1,5 +1,7 @@
 class ImportantPersonsController < ApplicationController
 
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
 
     @important_persons = ImportantPerson.all
@@ -17,10 +19,10 @@ class ImportantPersonsController < ApplicationController
       last_name: params[:last_name], 
       email: params[:email], 
       phone_number: params[:phone_number], 
-      image_url: params[:image_url], 
-      user_id: params[current_user.id]})
+      image_url: params[:image_url],
+      user_id: current_user.id})
 
-
+    flash[:success] = "New Person Created"
     redirect_to "/"
 
   end
@@ -29,6 +31,8 @@ class ImportantPersonsController < ApplicationController
 
     @important_person = ImportantPerson.find_by(id: params[:id])
     @events = @important_person.events
+    @wishlist_items = @important_person.wishlist_items
+    @messages = @important_person.messages
 
   end
 
@@ -48,7 +52,10 @@ class ImportantPersonsController < ApplicationController
       last_name: params[:last_name], 
       email: params[:email], 
       phone_number: params[:phone_number], 
-      image_url: params[:image_url]})
+      image_url: params[:image_url],
+      user_id: current_user.id})
+
+    flash[:success] = "Person's info updated"
 
     redirect_to "/important_persons/#{@important_person.id}"
 
@@ -59,6 +66,7 @@ class ImportantPersonsController < ApplicationController
     @important_person = ImportantPerson.find(params[:id])
     @important_person.destroy
 
+    flash[:warning] = "Person deleted"
     redirect_to "/"
 
   end

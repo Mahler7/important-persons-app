@@ -1,18 +1,18 @@
-<h1>Add A New Message</h1>
+<h1>Edit A Message</h1>
 
-<%= form_tag "/messages", method: :post do %>
-  
+<%= form_tag "/messages/#{@message.id}", method: :patch do %>
+
   <div class="title">
     <%= label_tag :title %>
-    <%= text_field_tag :title %>
+    <%= text_field_tag :title, @message.title %>
   </div>
 
   <div class="message">
     <%= label_tag :user_message %>
-    <%= text_field_tag :user_message %>
+    <%= text_field_tag :user_message, @message.user_message %>
   </div>
 
-  <div class="message-format">
+  <div>
     <%= label_tag :message_format %>
     <%= text_field_tag :message_format %>
     <%= select_tag(:message_format, options_for_select([['Text Message'], ['Email'], ['Email Template']])) %>
@@ -20,12 +20,6 @@
 
   <%= hidden_field_tag(:important_person_id, @important_person.id) %>
 
-  <%= submit_tag "Save Message" %>
+  <%= submit_tag "Edit Message" %>
 
 <% end %>
-
-
-
-
-
-  

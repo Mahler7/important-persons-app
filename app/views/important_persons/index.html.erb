@@ -2,7 +2,7 @@
 
 <% @important_persons.each do |important_person| %>
   <img src="<%= important_person.image_url %>" class="img-responsive">
-  <h2> Name: <%= link_to important_person.first_name,  "/important_persons/#{important_person.id}" %> <%= link_to important_person.last_name, "/important_persons/#{important_person.id}" %></h2>
+  <h2> Name: <%= link_to important_person.full_name,  "/important_persons/#{important_person.id}" %></h2>
   <p>Email: <%= important_person.email %></p>
   <p>Phone: <%= important_person.phone_number %></p>
   <%= link_to "New", "/important_persons/new" %>

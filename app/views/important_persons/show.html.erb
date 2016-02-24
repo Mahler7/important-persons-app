@@ -2,8 +2,15 @@
 <img src="<%= @important_person.image_url %>" class="img-responsive">
 <p> <%= @important_person.email %></p>
 <p> <%= @important_person.phone_number %></p>
+
 <% @events.each do |event| %>
   <h5>Upcoming Event: <%= link_to event.name, "/events/#{event.id}" %> </h5>
+<% end %>
+<% @wishlist_items.each do |wishlist_item| %>
+  <h5>Wishlist Items: <%= link_to wishlist_item.item_name, "/wishlist_items/#{wishlist_item.id}" %></h5>
+<% end %>
+<% @messages.each do |message| %>
+  <h5>Messages: <%= link_to message.title, "/messages/#{message.id}" %></h5>
 <% end %>
 
 
@@ -14,7 +21,12 @@
 
 <%= form_tag '/wishlist_items/new', method: :get do %>
   <%= hidden_field_tag :important_person_id, @important_person.id %>
-  <%= submit_tag "Create New Wishlist" %>
+  <%= submit_tag "Create New Wishlist Item" %>
+<% end %>
+
+<%= form_tag '/messages/new', method: :get do %>
+  <%= hidden_field_tag :important_person_id, @important_person.id %>
+  <%= submit_tag "Create New Message" %>
 <% end %>
 
 

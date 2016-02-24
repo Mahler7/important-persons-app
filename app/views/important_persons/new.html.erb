@@ -1,6 +1,7 @@
 <h1>Add an Important Person</h1>
 
 <%= form_tag '/important_persons', method: :post do %>
+  
   <div>
     <%= label_tag :first_name %> 
     <%= text_field_tag :first_name %> 
@@ -16,7 +17,6 @@
     <%= text_field_tag :image_url %>
   </div>
 
-  <%= submit_tag "Add Person" %>
-    
+  <%= submit_tag "Add Person" %> 
 
 <% end %>

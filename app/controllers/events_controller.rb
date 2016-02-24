@@ -14,13 +14,15 @@ class EventsController < ApplicationController
   end
 
   def create
-
-    @event = Event.create({
-      name: params[:name], 
+      @event = Event.create({
+      name: set_name, 
       description: params[:description], 
       date: params[:event][:date], 
       reminder: params[:event][:reminder], 
       important_person_id: params[:important_person_id]})
+
+
+    flash[:success] = "Event Created"
 
     redirect_to "/events/#{@event.id}"
 
@@ -45,11 +47,13 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     @event.update({
-      name: params[:name],
+      name: set_name,
       description: params[:description], 
       date: params[:event][:date], 
       reminder: params[:event][:reminder], 
       important_person_id: params[:important_person_id]})
+
+    flash[:success] = "Event Updated"
 
     render :show
 
@@ -60,8 +64,20 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
 
+    flash[:warning] = "Event Deleted"
+
     redirect_to "/events"
 
+  end
+
+  private
+
+  def set_name
+    if params[:name] == 'Other' 
+      params[:option_name]
+    else
+      params[:name]
+    end
   end
 
 end
