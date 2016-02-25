@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :important_persons
+  has_many :events, through: :important_persons
+  has_many :wishlist_items, through: :important_persons
+  has_many :messages, through: :important_persons
+  
 end

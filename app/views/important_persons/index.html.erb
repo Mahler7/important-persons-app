@@ -1,11 +1,15 @@
 <h1>Important People</h1>
 
 <% @important_persons.each do |important_person| %>
-  <img src="<%= important_person.image_url %>" class="img-responsive">
-  <h2> Name: <%= link_to important_person.full_name,  "/important_persons/#{important_person.id}" %></h2>
-  <p>Email: <%= important_person.email %></p>
-  <p>Phone: <%= important_person.phone_number %></p>
-  <%= link_to "New", "/important_persons/new" %>
-  <%= link_to "Edit", "/important_persons/#{important_person.id}/edit" %>
-  <%= link_to "Delete", "/important_persons/#{important_person.id}", method: :delete, data:{confirm: "Are you sure you want to delete this person?"} %>
+  <% if current_user.id == important_person.user_id %>
+
+    <img src="<%= important_person.image_url %>" class="img-responsive">
+    <h2> Name: <%= link_to important_person.full_name,  "/important_persons/#{important_person.id}" %></h2>
+    <p>Email: <%= important_person.email %></p>
+    <p>Phone: <%= important_person.phone_number %></p>
+    <%= link_to "New", "/important_persons/new" %>
+    <%= link_to "Edit", "/important_persons/#{important_person.id}/edit" %>
+    <%= link_to "Delete", "/important_persons/#{important_person.id}", method: :delete, data:{confirm: "Are you sure you want to delete this person?"} %>
+  <% end %>
+  
 <% end %>

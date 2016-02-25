@@ -2,9 +2,9 @@
 
 <% @wishlist_items.each do |wishlist_item| %>
   <h1><%= link_to wishlist_item.important_person.full_name, "/important_persons/#{wishlist_item.important_person.id}" %></h1>
-  
+
   <h4><%= link_to wishlist_item.item_name, "/wishlist_items/#{wishlist_item.id}" %></h4>
-  
+
    <div>
      <% if wishlist_item.item_url == "" %>
        <%= link_to "Add Item URL", "/wishlist_items/#{wishlist_item.id}/edit" %>

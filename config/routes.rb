@@ -43,6 +43,6 @@ Rails.application.routes.draw do
   get '/messages/:id' => 'messages#show'
   get '/messages/:id/edit' => 'messages#edit'
   patch '/messages/:id' => 'messages#update'
-  delete '/message/:id' => 'messages#destroy'
+  delete '/messages/:id' => 'messages#destroy'
 
 end

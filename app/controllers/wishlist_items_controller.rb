@@ -1,9 +1,10 @@
 class WishlistItemsController < ApplicationController
 
+  before_action :authenticate_user
+
   def index
     
-    @wishlist_items = WishlistItem.all
-    @wishlist_items = WishlistItem.order(:important_person_id)
+    @wishlist_items = current_user.wishlist_items.order(:important_person_id)
 
   end
 

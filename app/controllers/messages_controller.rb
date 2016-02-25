@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
 
+  before_action :authenticate_user
+
   def index
 
-    @messages = Message.all
-    @messages = Message.order(:important_person_id)
-
+    @messages = current_user.messages.order(:important_person_id)
 
   end
 
@@ -21,6 +21,8 @@ class MessagesController < ApplicationController
       user_message: params[:user_message],
       message_format: params[:message_format],
       important_person_id: params[:important_person_id]})
+
+    # @email_send = UserMailer.email_message(message).deliver_now
 
     redirect_to "/messages/#{@message.id}"
 

@@ -5,9 +5,11 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.email_message.subject
   #
-  def email_message
-    @greeting = "Hi"
+  def email_message(message)
+    @important_email = message.important_person.email
+    @important_message = message.user_message
+    @message_title = message.title
 
-    mail to: "to@example.org"
+    mail to: @important_email, subject: @message_title
   end
 end
