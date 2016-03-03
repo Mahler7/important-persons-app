@@ -18,6 +18,11 @@
     <%= select_tag(:message_format, options_for_select([['Text Message'], ['Email'], ['Email Template']])) %>
   </div>
 
+  <div>
+    <%= label_tag :scheduled_time %>
+    <%= datetime_local_field :message, :scheduled_time %>
+  </div>
+
   <%= hidden_field_tag(:important_person_id, @important_person.id) %>
 
   <%= submit_tag "Edit Message" %>

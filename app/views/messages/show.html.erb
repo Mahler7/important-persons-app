@@ -2,7 +2,10 @@
 <img src="<%= @image %>" class="img-responsive">
 <h3> <%= @message.title %></h3>
 <p> <%= @message.message_format %></p>
+<p> <%= @message.scheduled_time %> </p>
 <p> <%= @message.user_message %></p>
+
+<%= link_to "Send Email", "/messages/send_email/#{@message.id}", method: :post %>
 
 <div>
   <%= link_to "New", "/messages/new" %>

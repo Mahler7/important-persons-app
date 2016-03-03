@@ -10,6 +10,113 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require theme/bootstrap-ie7
+ *= require theme/bootstrap
+ *= require theme/font-awesome-ie7
+ *= require theme/font-awesome.min
+ *= require theme/ie7
+ *= require theme/ie8
+ *= require theme/style
+ *= require theme/blue
+ *= require theme/orange
+ *= require theme/red
+ *= require theme/violet
+ *= important_persons
  *= require_tree .
  *= require_self
  */
+
+
+ /* -----------------------------------------------------------------------------------------------------------*/
+ a {
+   color: #2090AC;
+ }
+
+ a:hover, a:focus {
+   color: #28ABCC;
+ }
+
+ blockquote {
+   border-left: 5px solid #2090AC;
+ }
+
+ .navbar{
+   border-bottom: 2px solid #2090AC;
+ }
+
+ .navbar-inverse {
+   background-color: #28ABCC;
+   border-color: #2090AC;
+ }
+
+ .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+   background-color: #2090AC;
+ }
+
+ .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+   background-color: #2090AC;
+ }
+
+ .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+   background-color: #2090AC;
+ }
+
+ .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+   background-color: #2090AC;
+ }
+
+ .navbar-inverse .navbar-toggle {
+   border-color: #2090AC;
+ }
+
+ .dropdown-menu{
+   background-color: #2090AC;
+ }
+
+ .post-meta .fa{
+   color: #2090AC;
+ }
+
+ .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+   background-color: #2090AC;
+ }
+
+ .tags a{
+   background: #28ABCC;
+ }
+
+ .tags a:hover{
+   background: #2090AC;
+ }
+
+ .label-default {
+   background-color: #28ABCC;
+ }
+
+ .btn-primary {
+   background-color: #28ABCC;
+ }
+
+ .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary{
+   background-color: #2090AC;
+ }
+
+ .form-control:focus{
+   border-color: #28ABCC;
+ }
+
+ .block-icon{
+   background: #28ABCC;
+ }
+
+ .pricing-table .panel-default > .panel-heading{
+   background-color: #2090AC;
+ }
+
+ .pricing-table .panel-default > .panel-body{
+   background-color: #28ABCC;
+ }
+
+ h3.error-404 {
+   color: #2090AC;
+ }

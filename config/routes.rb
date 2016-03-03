@@ -45,4 +45,6 @@ Rails.application.routes.draw do
   patch '/messages/:id' => 'messages#update'
   delete '/messages/:id' => 'messages#destroy'
 
+  post '/messages/send_email/:id' => 'messages#send_email'
+
 end

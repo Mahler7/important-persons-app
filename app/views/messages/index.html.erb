@@ -8,6 +8,7 @@
     <h1><%= link_to message.important_person.full_name, "/important_persons/#{message.important_person.id}" %></h1>
     <h3><%= link_to message.title, "/messages/#{message.id}" %></h3>
     <p><%= message.message_format %></p>
+    <p><%= message.scheduled_time %></p>
     <p><%= message.user_message %></p>
 
     <div>

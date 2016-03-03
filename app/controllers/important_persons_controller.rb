@@ -4,8 +4,8 @@ class ImportantPersonsController < ApplicationController
 
   def index
 
-    @important_persons = ImportantPerson.all
-
+    @important_persons = current_user.important_persons.order(:last_name)
+    
   end
 
   def new

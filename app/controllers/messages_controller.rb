@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
       title: params[:title],
       user_message: params[:user_message],
       message_format: params[:message_format],
+      scheduled_time: params[:message][:scheduled_time],
       important_person_id: params[:important_person_id]})
 
     # @email_send = UserMailer.email_message(message).deliver_now
@@ -50,6 +51,7 @@ class MessagesController < ApplicationController
       title: params[:title],
       user_message: params[:user_message],
       message_format: params[:message_format],
+      scheduled_time: params[:message][:scheduled_time],
       important_person: params[:important_person_id]})
 
     render :show
@@ -63,6 +65,14 @@ class MessagesController < ApplicationController
     @message.destroy
 
     redirect_to "/messages"
+
+  end
+
+  def send_email
+    message = Message.find(params[:id])
+    UserMailer.email_message(message).deliver_now
+
+    redirect_to(:back)
 
   end
 
