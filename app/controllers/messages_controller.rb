@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
   def new
 
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
+    @important_persons = ImportantPerson.all
 
   end
 
@@ -23,7 +24,7 @@ class MessagesController < ApplicationController
       scheduled_time: params[:message][:scheduled_time],
       important_person_id: params[:important_person_id]})
 
-    # @email_send = UserMailer.email_message(message).deliver_now
+    flash[:success] = "Message Created"
 
     redirect_to "/messages/#{@message.id}"
 
@@ -40,6 +41,8 @@ class MessagesController < ApplicationController
 
     @message = Message.find(params[:id])
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
+    @important_persons = ImportantPerson.all
+
 
   end
 
@@ -54,6 +57,8 @@ class MessagesController < ApplicationController
       scheduled_time: params[:message][:scheduled_time],
       important_person: params[:important_person_id]})
 
+    flash[:success] = "Message Updated"
+
     render :show
 
   end
@@ -63,6 +68,8 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
 
     @message.destroy
+
+    flash[:warning] = "Message Deleted"
 
     redirect_to "/messages"
 
@@ -75,5 +82,13 @@ class MessagesController < ApplicationController
     redirect_to(:back)
 
   end
+
+  def send_email_later
+    message = Message.find(params[:id])
+    time = message.scheduled_time
+    UserMailer.email_message(message).deliver_later(time)
+
+  end
+
 
 end

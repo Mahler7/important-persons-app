@@ -6,8 +6,10 @@ class Message < ActiveRecord::Base
   validates :user_message, presence: true
   validates :message_format, presence: true
 
-  def full_name
+  # def pretty_scheduled_time
 
-    # "#{important_person.first_name} #{important_person.last_name}"
-  end
+  #   scheduled_time.strftime("%A %B %e %Y %m %M %p ")
+
+  # end
+  
 end

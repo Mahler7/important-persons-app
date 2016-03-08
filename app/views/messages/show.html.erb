@@ -5,7 +5,9 @@
 <p> <%= @message.scheduled_time %> </p>
 <p> <%= @message.user_message %></p>
 
-<%= link_to "Send Email", "/messages/send_email/#{@message.id}", method: :post %>
+<%= link_to "Send Email Now", "/messages/send_email/#{@message.id}", method: :post %>
+
+<%= link_to "Send Email Later", "/messages/send_email_later/#{@message.id}", method: :post %>
 
 <div>
   <%= link_to "New", "/messages/new" %>

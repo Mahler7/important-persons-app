@@ -6,20 +6,29 @@
   <div class="row">
 
     <div class="col-md-7 col-sm-7">
-      <a href= "/important_persons/<%= important_person.id %>"><img class="img-responsive" src="<%= important_person.image_url %>" alt="<%= important_person.full_name %>"></a>
+      <a href= "/important_persons/<%= important_person.id %>" id="ip-no-image-index-text"><img class="img-responsive-ip-index" src="<%= important_person.image_url %>" alt="<%= important_person.full_name %>"></a>
     </div>
 
     <div class="col-md-5 col-sm-5" id="ip-index-info">
-      <h2><%= link_to important_person.full_name,  "/important_persons/#{important_person.id}" %></h2><br>
+      <h1><%= link_to important_person.full_name,  "/important_persons/#{important_person.id}" %></h1><br>
       <p>Email: <%= important_person.email %></p>
       <p>Phone: <%= important_person.phone_number %></p>
-      <a class="btn btn-primary" href="/important_persons/<%=important_person.id%>">View Person <i class="fa fa-angle-right"></i></a>
+      <a class="btn btn-primary" href="/important_persons/<%=important_person.id%>" id="ip-index-button">View Person</a>
     </div>
   
   </div>
-  <%= link_to "New", "/important_persons/new" %>
-  <%= link_to "Edit", "/important_persons/#{important_person.id}/edit" %>
-  <%= link_to "Delete", "/important_persons/#{important_person.id}", method: :delete, data:{confirm: "Are you sure you want to delete this person?"} %>
-  <hr>
+
+  <div class="row" id="ip-index-ned">
+    <div class="col-md-7 col-sm-7">
+      <p><%= link_to "New", "/important_persons/new" %>
+      <%= link_to "Edit", "/important_persons/#{important_person.id}/edit" %>
+      <%= link_to "Delete", "/important_persons/#{important_person.id}", method: :delete, data:{confirm: "Are you sure you want to delete this person?"} %></p>
+    </div>
+  </div>
+  
+  <div class="col-md-7 col-sm-7" id="ip-index-ned">
+
+    <hr>
+  </div>
   
 <% end %>

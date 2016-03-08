@@ -29,7 +29,7 @@
           <%= hidden_field_tag :important_person_id, @important_person.id %>
           <%= submit_tag "Create New Event", class: "btn btn-primary", id: "ip-events-button" %>
         <% end %>
-      <i class="fa fa-angle-right"></i>
+      
     </div>
 
     <div class="col-md-4">
@@ -38,7 +38,7 @@
           <%= hidden_field_tag :important_person_id, @important_person.id %>
           <%= submit_tag "Create New Wishlist Item",class: "btn btn-primary", id: "ip-wishlist-items-button" %>
         <% end %>
-      <i class="fa fa-angle-right"></i></a>
+      </a>
     </div>
 
     <div class="col-md-4">
@@ -46,7 +46,7 @@
           <%= hidden_field_tag :important_person_id, @important_person.id %>
           <%= submit_tag "Create New Message", class: "btn btn-primary", id: "ip-messages-button" %>
         <% end %>
-      <i class="fa fa-angle-right"></i></a>
+      </a>
     </div>
     </div>
 
@@ -74,10 +74,6 @@
 
   <div class="row">
 
-    <div class="col-lg-4">
-      <h3 class="page-header">Related Projects</h3>
-    </div>
-
     <div class="col-sm-4 col-xs-6">
       <h3 class="events-header">Upcoming Events</h3>
         <div class="overlay-portfolio">
@@ -85,15 +81,6 @@
             <h5><%= link_to event.name, "/events/#{event.id}" %> </h5>
           <% end %>
         </div><!-- /.overlay-portfolio -->
-        
-        <button type="button" class="btn btn-default" aria-label="Left Align">
-          <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-        </button>
-
-        <button type="button" class="btn btn-default btn-lg">
-          <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> Event
-        </button>
-
       </a>
     </div>
 
@@ -104,7 +91,6 @@
             <h5>Wishlist Items: <%= link_to wishlist_item.item_name, "/wishlist_items/#{wishlist_item.id}" %></h5>
           <% end %>
         </div><!-- /.overlay-portfolio -->
-        <img class="img-responsive img-customer" src="img/portfolio_3.png" alt="Portfolio 3">
       </a>
     </div>
 
@@ -115,7 +101,6 @@
             <h5>Messages: <%= link_to message.title, "/messages/#{message.id}" %></h5>
           <% end %>
         </div><!-- /.overlay-portfolio -->
-        <img class="img-responsive img-customer" src="img/portfolio_4.png" alt="Portfolio 4">
       </a>
     </div>
 

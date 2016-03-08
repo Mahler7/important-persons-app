@@ -15,4 +15,5 @@ class ImportantPerson < ActiveRecord::Base
 
   end
 
+
 end

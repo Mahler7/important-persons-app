@@ -11,6 +11,7 @@ class WishlistItemsController < ApplicationController
   def new
 
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
+    @important_persons = ImportantPerson.all
 
   end
 
@@ -50,6 +51,7 @@ class WishlistItemsController < ApplicationController
 
     @wishlist_item = WishlistItem.find(params[:id])
     @important_person = ImportantPerson.find_by(id: @wishlist_item.important_person.id)
+    @important_persons = ImportantPerson.all
 
   end
 
@@ -83,7 +85,7 @@ class WishlistItemsController < ApplicationController
     @wishlist_item = WishlistItem.find(params[:id])
     @wishlist_item.destroy
 
-    flash[:success] = "Wishlist Item Deleted"
+    flash[:warning] = "Wishlist Item Deleted"
 
     redirect_to "/wishlist_items"
 

@@ -46,5 +46,6 @@ Rails.application.routes.draw do
   delete '/messages/:id' => 'messages#destroy'
 
   post '/messages/send_email/:id' => 'messages#send_email'
+  post '/messages/send_email_later/:id' => 'messages#send_email_later'
 
 end

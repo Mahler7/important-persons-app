@@ -10,6 +10,9 @@ class EventsController < ApplicationController
   def new
 
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
+    @event = Event.find_by(id: params[:important_person_id])
+    @important_persons = ImportantPerson.all
+
 
   end
 
@@ -32,6 +35,8 @@ class EventsController < ApplicationController
 
     @event = Event.find_by(id: params[:id])
     @image = @event.important_person.image_url
+    @important_person = ImportantPerson.find_by(id: params[:important_person_id])
+    @important_persons = ImportantPerson.all
 
   end
 
@@ -39,6 +44,7 @@ class EventsController < ApplicationController
 
     @event = Event.find(params[:id])
     @important_person = ImportantPerson.find_by(id: @event.important_person.id)
+    @important_persons = ImportantPerson.all
 
   end
 

@@ -28,7 +28,10 @@
     <%= check_box_tag :favorite %>
   </div>
 
-  <%= hidden_field_tag(:important_person_id, @important_person.id) %>
+  <div>
+    <%= label_tag "Select Important Person the Wishlist Item is for" %>
+    <%= select_tag(:important_person_id, options_from_collection_for_select(@important_persons, "id", "full_name")) %>
+  </div>
 
   <%= submit_tag "Add Item" %>
 

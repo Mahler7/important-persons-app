@@ -23,6 +23,7 @@ class ImportantPersonsController < ApplicationController
       user_id: current_user.id})
 
     flash[:success] = "New Person Created"
+    
     redirect_to "/"
 
   end
@@ -67,6 +68,7 @@ class ImportantPersonsController < ApplicationController
     @important_person.destroy
 
     flash[:warning] = "Person deleted"
+    
     redirect_to "/"
 
   end

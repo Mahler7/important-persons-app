@@ -1,49 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Important Persons App</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-
-    <!-- font-awesome -->
-    <link href="stylesheets/font-awesome.min.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if IE 7]>
-    <link href="css/font-awesome-ie7.css" rel="stylesheet">
-    <![endif]-->
-
-    <!-- Bootstrap core CSS -->
-    <link href="stylesheets/bootstrap.css" rel="stylesheet">
-
-    <!-- custom CSS from Theme-->
-    <link href="stylesheets/style.css" rel="stylesheet">
-    <!-- my custom CSS -->
-    <link href="/stylesheets/my-styles.css.scss" rel="stylesheet">
-    <!--[if lte IE 8]>
-    <link href="css/ie8.css" rel="stylesheet">
-    <![endif]-->
-    <!--[if lte IE 7]>
-    <link href="css/ie7.css" rel="stylesheet">
-    <![endif]-->
-
-    <!-- JavaScript -->
-    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
-    <script type="text/javascript" src="js/plugins.js"></script>
-    <!--[if lte IE 7]>
-    <script type="text/javascript" src="js/boxsizing/jquery.boxsizing.js"></script> 
-    <![endif]-->
-    <script type="text/javascript" src="js/banzhow.js"></script>
-  </head>
-
+<html>
+<head>
+  <title>ImportantPersonsApp</title>
+  <link href="/stylesheets/my-styles.css.scss" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
 
   <body> 
 
@@ -64,12 +27,20 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="/important_persons">Home</a></li>
-            <li><a href="/important_persons/new">Create Person</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Create </a>
+              <ul class="dropdown-menu">
+                <li><a href="/important_persons/new">New Important Person</a></li>
+                <li><a href="/events/new">New Event</a></li>
+                <li><a href="/wishlist_items/new">New Wishlist Item</a></li>
+                <li><a href="/messages/new">New Message</a></li>
+              </ul>
+            </li>
             <li><a href="/events">Events</a></li>
             <li><a href="/wishlist_items">Wishlists</a></li>
             <li><a href="/messages">Messages</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Sign Out <i class="fa fa-angle-down"></i></a>
+              <a href="/users/sign_out" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">Sign Out</a>
               <ul class="dropdown-menu">
             </li>
                 <li><%= link_to "Sign Out", "/users/sign_out", method: :delete if user_signed_in? %></li>
