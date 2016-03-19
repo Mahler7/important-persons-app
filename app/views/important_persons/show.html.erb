@@ -42,7 +42,7 @@
     </div>
 
     <div class="col-md-4">
-        <%= form_tag '/messages/new', method: :get do %>
+        <%= form_tag '/messages/select', method: :get do %>
           <%= hidden_field_tag :important_person_id, @important_person.id %>
           <%= submit_tag "Create New Message", class: "btn btn-primary", id: "ip-messages-button" %>
         <% end %>

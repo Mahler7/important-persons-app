@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   
   devise_for :users
   devise_scope :user do
-     authenticated :user do
-       root 'important_persons#index', as: :authenticated_root
-     end
+    authenticated :user do
+      root 'important_persons#home', as: :authenticated_root
+    end
 
-     unauthenticated do
-       root 'devise/registrations#new', as: :unauthenticated_root
-     end
-   end
-  root 'important_persons#index'
+    unauthenticated do
+      root 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
   
-  get '/' => 'important_persons#index'
+  root 'important_persons#home'
+  
+  get '/' => 'important_persons#home'
   get '/important_persons' => 'important_persons#index'
   get '/important_persons/new' => 'important_persons#new'
   post '/important_persons' => 'important_persons#create'
@@ -38,7 +41,9 @@ Rails.application.routes.draw do
   delete '/wishlist_items/:id' => 'wishlist_items#destroy'
 
   get '/messages' => 'messages#index'
+  
   get '/messages/new' => 'messages#new'
+  get '/messages/select' => 'messages#select_message'
   post '/messages' => 'messages#create'
   get '/messages/:id' => 'messages#show'
   get '/messages/:id/edit' => 'messages#edit'
@@ -47,5 +52,7 @@ Rails.application.routes.draw do
 
   post '/messages/send_email/:id' => 'messages#send_email'
   post '/messages/send_email_later/:id' => 'messages#send_email_later'
+  post '/messages/send_sms/:id' => 'messages#send_text'
+  post '/messages/send_tweet/:id' => 'messages#tweet'
 
 end

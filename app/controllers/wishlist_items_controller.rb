@@ -11,7 +11,7 @@ class WishlistItemsController < ApplicationController
   def new
 
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
-    @important_persons = ImportantPerson.all
+    @user = current_user.important_persons
 
   end
 
@@ -51,8 +51,8 @@ class WishlistItemsController < ApplicationController
 
     @wishlist_item = WishlistItem.find(params[:id])
     @important_person = ImportantPerson.find_by(id: @wishlist_item.important_person.id)
-    @important_persons = ImportantPerson.all
-
+    @user = current_user.important_persons
+    
   end
 
   def update

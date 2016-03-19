@@ -28,7 +28,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 gem 'thematic'
-gem 'sidekiq', '~> 4.1'
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'twilio-ruby', '~> 4.11.1'
+
+gem 'twitter'
+
+gem "koala", "~> 2.2"
+
+gem 'unirest'
+
+gem 'sidekiq'
+gem 'sinatra', :require => nil
+gem "redis-rails"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

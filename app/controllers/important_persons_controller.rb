@@ -2,6 +2,10 @@ class ImportantPersonsController < ApplicationController
 
   before_action :authenticate_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
+  def home
+
+  end
+
   def index
 
     @important_persons = current_user.important_persons.order(:last_name)

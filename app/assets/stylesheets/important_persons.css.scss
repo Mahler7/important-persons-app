@@ -1,7 +1,166 @@
+// --------------HOME PAGE-----------------
+
+.img-responsive-home {
+  position: fixed;
+  bottom: 31px;
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+#home-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+#home-ip-index-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#home-ip-index-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-ip-new-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#home-ip-new-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-events-index-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#home-events-index-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-events-new-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#home-events-new-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-wishlist-index-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#home-wishlist-index-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-wishlist-new-area {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#home-wishlist-new-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-messages-index-area {
+  padding-top: 20px;
+  padding-bottom: 121px;
+}
+
+#home-messages-index-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#home-messages-new-area {
+  padding-top: 20px;
+  padding-bottom: 121px;
+}
+
+#home-messages-new-button {
+  width: 250px;
+  height: 50px;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// ------------------INDEX PAGE------------------
+// ----------------------------------------------
+
+
 .col-md-4 {
   padding-top: 15px;
 }
 
+.ip-index-container {
+  padding-bottom: 40px;
+}
 
 #ip-no-image-index-text {
   font-size: 24px;
@@ -26,7 +185,7 @@
 
 #ip-index-ned {
   text-align: center;
-  }
+}
 
 .img-responsive-ip-show {
   max-width: 66%;

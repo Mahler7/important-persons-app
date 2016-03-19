@@ -1,0 +1,48 @@
+// Place all the styles related to the messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#new-message-heading {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#new-email-area {
+  padding-top: 20px;
+}
+
+#new-text-message-area {
+  padding-top: 30px;
+}
+
+#new-tweet-area {
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
+
+#new-email-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+}
+
+#new-text-message-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+}
+
+#new-tweet-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+}

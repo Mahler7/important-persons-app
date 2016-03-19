@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
     @important_person = ImportantPerson.find_by(id: params[:important_person_id])
     @event = Event.find_by(id: params[:important_person_id])
-    @important_persons = ImportantPerson.all
+    @user = current_user.important_persons
 
 
   end
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
     @event = Event.find(params[:id])
     @important_person = ImportantPerson.find_by(id: @event.important_person.id)
-    @important_persons = ImportantPerson.all
+    @user = current_user.important_persons
 
   end
 

@@ -13,18 +13,22 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
-//= require theme/banzhow
-//= require theme/bootstrap
-//= require theme/jquery.boxsizing
+
 //= require theme/jquery-1.10.2
-//= require theme/plugins
-//= require theme/bootstrap-hover-dropdown.min
-//= require theme/bowser.min
-//= require theme/device.min
+//= require theme/jquery.boxsizing
 //= require theme/jquery.parallax-1.1.3
 //= require theme/jquery.placeholder
 //= require theme/jquery.touchSwipe.min
+
+//= require theme/bootstrap
+//= require theme/bootstrap-hover-dropdown.min
+
+//= require theme/bowser.min
+
+//= require theme/banzhow
+
+//= require theme/plugins
+//= require theme/device.min
 //= require theme/respond
 //= require theme/scrolltopcontrol
 //= require_tree .

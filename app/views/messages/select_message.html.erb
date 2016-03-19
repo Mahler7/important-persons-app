@@ -1,0 +1,30 @@
+
+<h1 id="new-message-heading">Select A Type Of Message To Send</h1>
+
+<div class="row">
+
+  <div class="col-md-12" id="new-email-area">   
+      <%= form_tag '/messages/new', method: :get do %>
+        <%= hidden_field_tag :message_format, :email %>
+        <%= submit_tag "Create New Email", class: "btn btn-primary", id: "new-email-button" %>
+      <% end %>
+  </div>
+
+  <div class="col-md-12" id="new-text-message-area">
+      <%= form_tag '/messages/new', method: :get do %>
+        <%= hidden_field_tag :message_format, :text %>
+        <%= submit_tag "Create New Text Message",class: "btn btn-primary", id: "new-text-message-button" %>
+      <% end %>
+    </a>
+  </div>
+
+  <div class="col-md-12" id="new-tweet-area">
+      <%= form_tag '/messages/new', method: :get do %>
+        <%= hidden_field_tag :message_format, :tweet %>
+        <%= submit_tag "Create New Tweet", class: "btn btn-primary", id: "new-tweet-button" %>
+      <% end %>
+    </a>
+  </div>
+
+</div>
+

@@ -30,7 +30,7 @@
 
   <div>
     <%= label_tag "Select Important Person the Wishlist Item is for" %>
-    <%= select_tag(:important_person_id, options_from_collection_for_select(@important_persons, "id", "full_name")) %>
+    <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name")) %>
   </div>
 
   <%= submit_tag "Add Item" %>
