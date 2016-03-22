@@ -10,13 +10,13 @@
   </div>
 
   <div class="event-date">
-    <%= label_tag :date %>
-    <%= date_field :event, :date %>
+    <%= label_tag :date%>
+    <%= date_field :event, :date, id: "events_date" %>
   </div>
 
   <div class ="event-reminder">
     <%= label_tag :reminder %>
-    <%= datetime_local_field :event, :reminder %>
+    <%= datetime_local_field :event, :reminder, required: true %>
   </div>
 
   <div class="event-description">

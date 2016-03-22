@@ -3,6 +3,7 @@ class Message < ActiveRecord::Base
 
   validates :important_person_id, presence: true
   validates :user_message, presence: true
+  validates :scheduled_time, presence: true
 
   def pretty_scheduled_time
 

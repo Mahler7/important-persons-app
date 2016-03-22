@@ -1,33 +1,45 @@
-<h1>Edit an Important Person</h1>
+<div class="col-md-12 col-sm-12" id="ip-form-header">
+  <h1>Edit <%= @important_person.first_name %>'s Profile</h1>
+</div>
 
 <%= form_tag "/important_persons/#{@important_person.id}", method: :patch do %>
 
-  <div>
-    <%= label_tag :first_name %>
-    <%= text_field_tag :first_name, @important_person.first_name %>
-  </div>
+  <div class="ip-form-container">
 
-  <div>
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name, @important_person.last_name %>
-  </div>
+    <div class="row" id="ip-form-row">
 
-  <div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email, @important_person.email %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="ip-form-first-name">
+        <%= label_tag :first_name %>
+        <%= text_field_tag :first_name, @important_person.first_name, :id => "ip-first-name-form-field" %>
+      </div>
 
-  <div>
-    <%= label_tag :phone_number %>
-    <%= text_field_tag :phone_number, @important_person.phone_number %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="ip-form-last-name">
+        <%= label_tag :last_name %>
+        <%= text_field_tag :last_name, @important_person.last_name, :id => "ip-first-name-form-field" %>
+      </div>
 
-  <div>
-    <%= label_tag :image_url %>
-    <%= text_field_tag :image_url, @important_person.image_url %>
-  </div>
+       <div class="col-md-6 col-sm-6" id="ip-form-email">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, @important_person.email, :id => "ip-email-form-field" %>
+      </div>
 
-  <%= submit_tag "Edit Person" %>
+      <div class="col-md-6 col-sm-6" id="ip-form-phone">
+        <%= label_tag :phone_number %>
+        <em>(no dashes or 1)</em>
+        <%= text_field_tag :phone_number, @important_person.phone_number, :id => "ip-phone-form-field" %>
+      </div>
+
+      <div class="col-md-12 col-sm-12" id="ip-form-image">
+        <%= label_tag :image_url %>
+        <%= text_field_tag :image_url, @important_person.image_url, :id => "ip-image-form-field" %>
+      </div>
+      
+      <div class="col-md-12 col-sm-12" id="ip-form-submit">
+        <%= submit_tag "Edit Person", class: "btn btn-primary", id: "ip-form-button" %>
+      </div>
+
+    </div>
+  </div>
 
 <% end %>
 

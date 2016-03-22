@@ -1,10 +1,11 @@
 class MessagesController < ApplicationController
 
-  before_action :authenticate_user
+  before_action :authenticate_user!
 
   def index
-    # send_text
+    
     @messages = current_user.messages.order(:important_person_id)
+    
   end
 
   def message_select
@@ -30,8 +31,14 @@ class MessagesController < ApplicationController
       user_message: params[:user_message],
       message_format: params[:message_format],
       email_template: params[:email_template],
-      scheduled_time: params[:message][:scheduled_time],
+      scheduled_time: Time.parse(params[:message][:scheduled_time]),
       important_person_id: params[:important_person_id]})
+
+    if params[:message_format] == "text"
+      text_later(@message)
+    elsif params[:message_format] == "email"
+      email_later(@message)
+    end
 
     flash[:success] = "Message Created"
 
@@ -43,11 +50,6 @@ class MessagesController < ApplicationController
 
     @message = Message.find(params[:id])
     @image = @message.important_person.image_url
-    # @time = Date.parse('2014-01-21 03:13:59 UTC').strftime('%m/%d/%Y')
-    # @end_date = Date.parse(@message.scheduled_time.to_s).strftime('%m %d %Y %H %M')
-    # @start_date = Date.parse(Time.now.to_s).strftime('%m %d %Y %H %M')
-    # # @time = (@end_date - @start_date).to_i
-    # @time = (@end_date - self.created_at)
 
   end
 
@@ -68,10 +70,16 @@ class MessagesController < ApplicationController
       user_message: params[:user_message],
       message_format: params[:message_format],
       email_template: params[:email_template],
-      scheduled_time: params[:message][:scheduled_time],
+      scheduled_time: Time.parse(params[:message][:scheduled_time]),
       important_person_id: params[:important_person_id]})
 
     flash[:success] = "Message Updated"
+
+    if params[:message_format] == "text"
+      text_later(@message)
+    elsif params[:message_format] == "email"
+      email_later(@message)
+    end
 
     render :show
 
@@ -94,18 +102,72 @@ class MessagesController < ApplicationController
     message = Message.find(params[:id])
     UserMailer.email_message(message).deliver_now
     @user = current_user.important_persons
-    redirect_to(:back)
+    byebug
+    render :show
 
   end
 
   def send_email_later
     message = Message.find(params[:id])
+    email_later(message)
+    render :show
+  end
+
+  def email_later(message)
     end_date = message.scheduled_time
-    start_date = DateTime.now
+    start_date = DateTime.current
     time = (end_date - start_date).to_i
     UserMailer.email_message(message).deliver_later(wait: time.seconds)
-    redirect_to(:back)
+  end
+
+  def send_text
+
+    user_message = Message.find(params[:id])
+    user_phone = current_user.phone_number
+    message_sent = user_message.user_message
+    important_person_phone = user_message.important_person.phone_number
+
+    number_to_send_to = params[:number_to_send_to]
+
+        twilio_sid = ENV["TWILIO_ACCOUNT_SID"]
+        twilio_token = ENV["TWILIO_AUTH_TOKEN"]
+        twilio_phone_number = ENV["TWILIO_PHONE_NUMBER"]
+
+        @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+      
+        message = @client.account.sms.messages.create(
+          :from => "#{twilio_phone_number}",
+          :to => "+1#{important_person_phone}",
+          :body => "#{message_sent}",
+          # US phone numbers can make use of an image as well.
+          # :media_url => image_url 
+        )
     
+    render :show
+
+  end
+
+  def send_text_later
+
+    message = Message.find(params[:id])
+    text_later(message)
+    render :show
+
+  end
+
+  def text_later(message)
+
+    user_phone = current_user.phone_number
+    message_sent = message.user_message
+    important_person_phone = message.important_person.phone_number
+
+    end_date = message.scheduled_time
+    start_date = DateTime.current
+    time = (end_date - start_date).to_i
+    SmsJob.set(wait: time).perform_later(important_person_phone, message_sent)
+    p end_date
+    p start_date
+
   end
 
   def tweet
@@ -121,7 +183,7 @@ class MessagesController < ApplicationController
     @tweet = client.update(@message.user_message)
     @user = client.user("theonetruetest")
 
-    redirect_to(:back)
+    render :show
 
   end
 
@@ -133,25 +195,6 @@ class MessagesController < ApplicationController
     
   # end
 
-  # def send_text
-
-  #   number_to_send_to = params[:number_to_send_to]
-
-  #       twilio_sid = ENV["TWILIO_ACCOUNT_SID"]
-  #       twilio_token = ENV["TWILIO_AUTH_TOKEN"]
-  #       twilio_phone_number = ENV["TWILIO_PHONE_NUMBER"]
-
-  #       @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
-      
-  #       message = @client.account.sms.messages.create(
-  #         :from => "#{twilio_phone_number}",
-  #         :to => "+16305966292",
-  #         :body => 'hi',
-  #         # US phone numbers can make use of an image as well.
-  #         # :media_url => image_url 
-  #       )
-
-  # end
 
 
 end

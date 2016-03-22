@@ -1,6 +1,6 @@
 class ImportantPersonsController < ApplicationController
 
-  before_action :authenticate_user, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def home
 
@@ -9,7 +9,8 @@ class ImportantPersonsController < ApplicationController
   def index
 
     @important_persons = current_user.important_persons.order(:last_name)
-    
+    @user = current_user
+
   end
 
   def new
@@ -18,7 +19,7 @@ class ImportantPersonsController < ApplicationController
 
   def create
 
-    @important_person = ImportantPerson.create({
+    @important_person = ImportantPerson.new({
       first_name: params[:first_name], 
       last_name: params[:last_name], 
       email: params[:email], 
@@ -26,10 +27,18 @@ class ImportantPersonsController < ApplicationController
       image_url: params[:image_url],
       user_id: current_user.id})
 
-    flash[:success] = "New Person Created"
-    
-    redirect_to "/"
-
+    ip = params[:phone_number]
+    if ip.chars.first == "1" && ip.size > 9
+      ip.slice![0]
+      if @important_person.save
+        flash[:success] = "New Person Created"
+        redirect_to "/important_persons"
+      else
+        flash[:warning] = "New Person Was NOT Created"
+        render :new
+      end
+    end
+    p ip
   end
 
   def show
@@ -52,7 +61,7 @@ class ImportantPersonsController < ApplicationController
 
     @important_person = ImportantPerson.find(params[:id])
 
-    @important_person.update({
+    if @important_person.update({
       first_name: params[:first_name], 
       last_name: params[:last_name], 
       email: params[:email], 
@@ -60,9 +69,12 @@ class ImportantPersonsController < ApplicationController
       image_url: params[:image_url],
       user_id: current_user.id})
 
-    flash[:success] = "Person's info updated"
-
-    redirect_to "/important_persons/#{@important_person.id}"
+      flash[:success] = "Person's Info Was Updated"
+      redirect_to "/important_persons/#{@important_person.id}"
+    else
+      flash[:warning] = "Person's Info Was NOT Updated"
+      render :edit
+    end
 
   end
 

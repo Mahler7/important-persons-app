@@ -1,6 +1,6 @@
 class WishlistItemsController < ApplicationController
 
-  before_action :authenticate_user
+  before_action :authenticate_user!
 
   def index
     
@@ -17,7 +17,7 @@ class WishlistItemsController < ApplicationController
 
   def create
 
-    @wishlist_item = WishlistItem.create({
+    @wishlist_item = WishlistItem.new({
       item_name: params[:item_name],
       item_url: params[:item_url],
       image_url: params[:image_url],
@@ -32,18 +32,19 @@ class WishlistItemsController < ApplicationController
       fave = true
     end
 
-
-    flash[:success] = "Wishlist Item Created"
-
-    redirect_to "/wishlist_items/#{@wishlist_item.id}"
+    if @wishlist_item.save
+      flash[:success] = "New Wishlist Item Created"
+      redirect_to "/wishlist_items/#{@wishlist_item.id}"
+    else
+      flash[:warning] = "Wishlist Item Was NOT Created"
+      render :new
+    end
 
   end
 
   def show
 
     @wishlist_item = WishlistItem.find(params[:id])
-
-    @image = @wishlist_item.important_person.image_url
 
   end
 
@@ -52,7 +53,7 @@ class WishlistItemsController < ApplicationController
     @wishlist_item = WishlistItem.find(params[:id])
     @important_person = ImportantPerson.find_by(id: @wishlist_item.important_person.id)
     @user = current_user.important_persons
-    
+
   end
 
   def update
@@ -65,7 +66,7 @@ class WishlistItemsController < ApplicationController
       fave = true
     end
 
-    @wishlist_item.update({
+    if @wishlist_item.update({
       item_name: params[:item_name],
       item_url: params[:item_url],
       image_url: params[:image_url],
@@ -73,10 +74,12 @@ class WishlistItemsController < ApplicationController
       favorite: fave,
       important_person_id: params[:important_person_id]
       })
-
-    render :show
-
-    flash[:success] = "Wishlist Item Information Changed"
+      flash[:success] = "Wishlist Item Information Changed"
+      redirect_to "/wishlist_items/#{@wishlist_item.id}"
+    else
+      flash[:warning] = "Wishlist Item Information Changed"
+      render :edit
+    end
 
   end
 

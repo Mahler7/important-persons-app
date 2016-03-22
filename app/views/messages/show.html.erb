@@ -1,24 +1,31 @@
 <h1>Message for <%= @message.important_person.full_name %></h1>
+
 <img src="<%= @image %>" class="img-responsive">
 <h3> <%= @message.title %></h3>
 <p> <%= @message.message_capitalize %></p>
-<p> <%= @message.pretty_scheduled_time %> </p>
 <p> <%= @message.user_message %></p>
 
-
-
+<% if @message.scheduled_time == nil %>
+  <p><%= link_to "Add Scheduled Time", "/messages/#{@message.id}/edit" %></p>
+<% else %>
+  <p> <%= @message.pretty_scheduled_time %> </p>
+<% end %>
 
 <% if @message.message_format == "email" %>
 
-  <%= link_to "Send Email Now", "/messages/send_email/#{@message.id}", method: :post %>
+  <%= link_to "Send Email Now", "/messages/send_email/#{@message.id}", method: :get %>
 
-  <%= link_to "Send Email Later", "/messages/send_email_later/#{@message.id}", method: :post %>
+  <%= link_to "Send Email Later", "/messages/send_email_later/#{@message.id}", method: :get %>
 
 <% elsif @message.message_format == "text" %>
+  
+  <%= link_to "Send Text Now", "/messages/send_sms/#{@message.id}", method: :get %>
+
+  <%= link_to "Send Text Later", "/messages/send_sms_later/#{@message.id}", method: :get %>
 
 <% elsif @message.message_format == "tweet" %>
 
-  <%= link_to "Send Tweet Now", "/messages/send_tweet/#{@message.id}", method: :post %>
+  <%= link_to "Send Tweet Now", "/messages/send_tweet/#{@message.id}", method: :get %>
 
 <% end %>
 

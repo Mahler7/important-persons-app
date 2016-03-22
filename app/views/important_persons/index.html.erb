@@ -1,13 +1,18 @@
-<br>
-<br>
+<div class="col-md-12 col-sm-12" id="ip-index-header">
+  <% if @user.first_name == nil %>
+    <h1>Your Important People</h1>
+  <% else %>
+    <h1><%= @user.first_name %>'s Important People</h1>
+  <% end %>
+</div>
 
 <% @important_persons.each do |important_person| %>
   
   <div class="ip-index-container">
 
     <div class="row" id="ip-index-row">
-
-      <div class="col-md-7 col-sm-7">
+      
+      <div class="col-md-7 col-sm-7" id="ip-index-image">
         <a href= "/important_persons/<%= important_person.id %>" id="ip-no-image-index-text"><img class="img-responsive-ip-index" src="<%= important_person.image_url %>" alt="<%= important_person.full_name %>"></a>
       </div>
 

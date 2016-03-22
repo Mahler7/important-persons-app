@@ -4,7 +4,7 @@
   <title>ImportantPersonsApp</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <%#= csrf_meta_tags %>
 </head>
 
   <body> 
@@ -55,12 +55,6 @@
           </div><!-- /.navbar-collapse -->
       </div><!-- /.container -->
     </nav>  
-  
-  <!--For Universal Background Image -->
- <!--    <div id="bg">
-      <img class="img-responsive-background" src="https://www.placergop.org/images/CONTENTIMAGES/family.jpg">
-    </div> --><!-- image collapse -->
-
 
 
 <% flash.each do |name, message| %>

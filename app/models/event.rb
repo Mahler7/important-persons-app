@@ -5,6 +5,8 @@ class Event < ActiveRecord::Base
   validates :important_person_id, presence: true
   validates :name, presence: true
   validates :date, presence: true
+  validates :date, presence: true
+  validates :reminder, presence: true
 
   def pretty_date
 
@@ -14,10 +16,15 @@ class Event < ActiveRecord::Base
 
   def pretty_reminder
 
-    reminder.strftime("%A %B %e %Y %m %M %p ")
+    reminder.strftime("%A %B %e %Y %I %M %p")
 
   end
-
   
+  
+  def start_time
+
+      self.date
+      
+  end
 
 end

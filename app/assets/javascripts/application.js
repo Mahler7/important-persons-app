@@ -13,7 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-
 //= require theme/jquery-1.10.2
 //= require theme/jquery.boxsizing
 //= require theme/jquery.parallax-1.1.3

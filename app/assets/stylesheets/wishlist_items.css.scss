@@ -1,0 +1,225 @@
+//---------------------INDEX---------------------
+//----------------------------------------------------
+
+#ip-wishlist-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: #34495E;
+}
+
+.ip-wishlist-container {
+  padding-bottom: 40px;
+}
+
+.img-responsive-wishlist-index {
+  max-height: 300px;
+  max-width: 450px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-index-item p {
+  font-size: 24px;
+  text-align: center;
+}
+
+#wishlist-index-item h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#wishlist-index-info {
+  text-align: center;
+  padding-top: 200px;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+}
+
+#wishlist-index-info p {
+  font-size: 20px;
+}
+
+#wishlist-index-button {
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+}
+
+#wishlist-index-ned p {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+//--------------------NEW/EDIT-----------------------
+//-------------------------------------------------------
+
+#wishlist-form-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}  
+
+#wishlist-form-item-name-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-form-item-name {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#wishlist-form-item-url-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-form-item-url {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#wishlist-form-image-url-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-form-image-url {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#wishlist-form-description-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-form-description {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#wishlist-form-ip-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 200px;
+}
+
+#wishlist-form-ip {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#wishlist-form-favorite-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-form-favorite {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#wishlist-form-submit {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#wishlist-form-button {
+ background-color: #28ABCC;
+ font-size: 24px;
+ color: white;
+}
+
+//-----------------------SHOW---------------------
+//---------------------------------------------------
+
+.ip-show-container {
+  padding-bottom: 40px;
+}
+
+
+#wishlist-show-header {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.img-responsive-wishlist-show {
+  max-height: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#wishlist-show-left {
+  text-align: center;
+}
+
+#wishlist-show-left h1 {
+  padding-bottom: 20px;
+}
+
+#wishlist-show-left p {
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#wishlist-show-info {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

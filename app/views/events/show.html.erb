@@ -4,6 +4,8 @@
   <img src="<%= @event.important_person.image_url %>" class="img-responsive">
 <% end %>
 
+<%= link_to "Schedule Reminder", "/events/reminder/#{@event.id}", method: :post %>
+
 <h4>Date: <%= @event.pretty_date %></h4> 
 
 <div>

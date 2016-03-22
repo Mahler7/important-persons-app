@@ -16,6 +16,7 @@
  *= require theme/style
  *= require theme/blue
  *= important_persons
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */

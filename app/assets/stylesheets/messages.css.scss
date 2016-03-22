@@ -1,6 +1,6 @@
-// Place all the styles related to the messages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//----------------SELECT MESSAGES----------------
+//----------------------------------------------------
+
 #new-message-heading {
   text-align: center;
   padding-top: 20px;
@@ -46,3 +46,37 @@
   font-size: 24px;
   color: white;
 }
+
+//----------------------INDEX-----------------------
+//-----------------------------------------------------
+
+.messages-index-container {
+  padding-bottom: 40px;
+}
+
+#messages-index-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  color: #34495E;
+}
+#messages-index-info {
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

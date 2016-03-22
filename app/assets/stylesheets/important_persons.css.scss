@@ -158,8 +158,26 @@
   padding-top: 15px;
 }
 
+#ip-index-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  color: #34495E;
+}
+
 .ip-index-container {
   padding-bottom: 40px;
+}
+
+.img-responsive-ip-index {
+  max-height: 300px;
+  max-width: 450px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ip-no-image-index-text {
@@ -177,35 +195,184 @@
   color: white;
 }
 
-.img-responsive-ip-index {
+#ip-index-ned {
+  text-align: center;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+//----------------NEW/EDIT---------------
+//------------------------------------------
+
+#ip-form-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.breadcrumb-new {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-#ip-index-ned {
+#ip-first-name-form-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-form-first-name {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#ip-last-name-form-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-form-last-name {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#ip-email-form-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-form-email {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#ip-phone-form-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-form-phone {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#ip-form-phone em {
+  font-size: 16px;
+}
+
+#ip-image-form-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-form-image {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#ip-form-submit {
+  padding-top: 20px;
   text-align: center;
 }
 
-.img-responsive-ip-show {
-  max-width: 66%;
-  height: auto;
-}
-
-#ip-events-button {
+#ip-form-button {
  background-color: #28ABCC;
  font-size: 24px;
  color: white;
+}
+
+
+//-------------------SHOW----------------
+//------------------------------------------
+ 
+#ip-show-header { 
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.img-responsive-ip-show {
+  max-height: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-show-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+}
+
+#ip-show-info span {
+  font-size: 18px;
+}
+
+#ip-show-info p {
+  padding-top: 20px;
+}
+
+#ip-show-row-middle {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+#ip-events-button {
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #ip-wishlist-items-button {
  background-color: #28ABCC;
  font-size: 24px;
  color: white;
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
 }
 
 #ip-messages-button {
   background-color: #28ABCC;
   font-size: 24px;
   color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ip-show-row-bottom {
+  padding-bottom: 60px;
+}
+
+#ip-show-row-bottom h5 {
+  font-size: 18px;
+  text-align: center;
+}
+
+#ip-show-row-bottom h2 {
+  text-align: center;
 }

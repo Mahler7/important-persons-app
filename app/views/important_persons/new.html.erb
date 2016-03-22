@@ -1,22 +1,43 @@
-<h1>Add an Important Person</h1>
+<div class="col-md-12 col-sm-12" id="ip-form-header">
+  <h1>Add an Important Person</h1>
+</div>
 
 <%= form_tag '/important_persons', method: :post do %>
+
+  <div class="ip-form-container">
+
+    <div class="row" id="ip-form-row">
   
-  <div>
-    <%= label_tag :first_name %> 
-    <%= text_field_tag :first_name %> 
-    <%= label_tag :last_name %>
-    <%= text_field_tag :last_name %>
-  </div>
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-    <%= label_tag :phone_number %>
-    <%= text_field_tag :phone_number %>
-  <div>
-    <%= label_tag :image_url %>
-    <%= text_field_tag :image_url %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="ip-form-first-name">
+        <%= label_tag :first_name %> 
+        <%= text_field_tag :first_name, '', :id => "ip-first-name-form-field" %>
+      </div>
+      
+      <div class="col-md-6 col-sm-6" id="ip-form-last-name">
+        <%= label_tag :last_name %>
+        <%= text_field_tag :last_name, '', :id => "ip-first-name-form-field" %>
+      </div>
+      
+      <div class="col-md-6 col-sm-6" id="ip-form-email">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, '', :id => "ip-email-form-field" %>
+      </div>
 
-  <%= submit_tag "Add Person" %> 
+      <div class="col-md-6 col-sm-6" id="ip-form-phone">
+        <%= label_tag :phone_number %>
+        <em>(no dashes or 1)</em>
+        <%= text_field_tag :phone_number, '', :id => "ip-phone-form-field" %>
+      </div>
+      
+      <div class="col-md-12 col-sm-12" id="ip-form-image">
+        <%= label_tag :image_url %>
+        <%= text_field_tag :image_url, '', :id => "ip-image-form-field" %>
+      </div>
 
+      <div class="col-md-12 col-sm-12" id="ip-form-submit">
+        <%= submit_tag "Add Person", class: "btn btn-primary", id: "ip-form-button" %> 
+      </div>
+    
+    </div>
+  </div>
 <% end %>

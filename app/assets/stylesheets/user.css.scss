@@ -1,23 +1,33 @@
 // ----------------LOGIN----------------
 //---------------------------------------
 
-.log-in{
+.log-in {
   width: 700px;
   margin:auto;
   text-align:center;
   padding-top:10%;
 }
  
-.panel-heading{
-  background-color:#fff;
+.panel-heading { 
+  text-align: center;
 }
  
-.form-control{
+.form-control {
   width: 500px;
   text-align: center;
   margin:auto;
 }
 
+// ---------------SIGN UP/EDIT------------------
+//------------------------------------------------
 
+.sign-in{ 
+  width: 700px;
+  margin:auto;
+  text-align:center;
+  padding-bottom:10%;
+}
 
-
+.panel-default {
+  background: transparent;
+}

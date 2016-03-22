@@ -1,38 +1,48 @@
-<h1>Create Wishlist Item</h1>
+<div class="col-md-12 col-sm-12" id="wishlist-form-header">
+  <h1>Add a Wishlist Item</h1>
+</div>
 
 <%= form_tag '/wishlist_items', method: :post do %>
 
-  <div class="item-name">
-    <%= label_tag :item_name %>
-    <%= text_field_tag :item_name %>
-  </div>
+  <div class="wishlist-form-container">
 
-  <div class="item-url">
-    <%= label_tag :item_url %>
-    <%= text_field_tag :item_url %>
-  </div>
+    <div class="row" id="wishlist-form-row">
 
-  <div class="wishlist-image-url">
-    <%= label_tag :image_url %>
-    <%= text_field_tag :image_url %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="wishlist-form-item-name">
+        <%= label_tag :item_name %>
+        <%= text_field_tag :item_name, '', :id => "wishlist-form-item-name-field" %>
+      </div>
 
-  <div class="wishlist-description">
-    <%= label_tag :description %>
-    <%= text_field_tag :description %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="wishlist-form-item-url">
+        <%= label_tag :item_url %>
+        <%= text_field_tag :item_url, '', :id => "wishlist-form-item-url-field" %>
+      </div>
 
-  <div class="favorite">
-    <%= label_tag :favorite %>
-    <%= hidden_field_tag :favorite %>
-    <%= check_box_tag :favorite %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="wishlist-form-image-url">
+        <%= label_tag :image_url %>
+        <%= text_field_tag :image_url, '', :id => "wishlist-form-image-url-field" %>
+      </div>
 
-  <div>
-    <%= label_tag "Select Important Person the Wishlist Item is for" %>
-    <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name")) %>
-  </div>
+      <div class="col-md-6 col-sm-6" id="wishlist-form-description">
+        <%= label_tag :description %>
+        <%= text_field_tag :description, '', :id => "wishlist-form-description-field" %>
+      </div>
 
-  <%= submit_tag "Add Item" %>
+      <div class="col-md-6 col-sm-6" id="wishlist-form-ip">
+        <%= label_tag "Wishlist Item for" %>
+        <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name"), :id => "wishlist-form-ip-field") %>
+      </div>
+
+      <div class="col-md-6 col-sm-6" id="wishlist-form-favorite">
+        <%= label_tag :favorite %>
+        <%= check_box_tag :favorite, '', :id => "wishlist-form-favorite-field" %>
+      </div>
+
+      <div class="col-md-12 col-sm-12" id="wishlist-form-submit">
+        <%= submit_tag "Add Item", class: "btn btn-primary", id: "wishlist-form-button" %>
+      </div>
+
+    </div>
+  </div>
 
 <% end %>
