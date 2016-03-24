@@ -1,36 +1,48 @@
-<h1>Upcoming Events</h1>
+<div class="col-md-12 col-sm-12" id="events-index-header">
+  <h1>Upcoming Events</h1>
+</div>
 
 <% @events.each do |event| %>
-  
-  <h1> <%= link_to event.name, "/events/#{event.id}" %></h1>
-  
-  <% if event.important_person %>
-    <img src="<%= event.important_person.image_url %>" class="img-responsive">
-  <% end %>
-  
-  <h4>Date: <%= event.pretty_date %></h4> 
 
-  <div>
-    <% if event.reminder == nil %>
-      <%= link_to "Add Reminder", "/events/#{event.id}/edit" %>
-    <% else %>
-      <h4>Reminder Scheduled: <%= event.pretty_reminder %></h4>
-    <% end %>
-  </div>
+<div class="events-index-container">
 
-  <div>
-    <% if event.description == "" %>
-      <h4><%= link_to "Add Description", "/events/#{event.id}/edit" %></h4>
-    <% else %>
-      <p> <%= event.description %></p>
-    <% end %>
-  </div>
- 
-  <div>
+  <div class="row" id="events-index-row">
+
+    <div class="col-md-7 col-sm-7" id="events-index-item"> 
+      <h1> <%= link_to event.name + " for " + event.important_person.full_name, "/events/#{event.id}" %></h1>
     
-    <%= link_to "New", "/events/new" %>
-    <%= link_to "Edit", "/events/#{event.id}/edit" %>
-    <%= link_to "Delete", "/events/#{event.id}", method: :delete, data:{confirm: "Are you sure you want to delete this event?"} %>
-  </div>
+      <img src="<%= event.important_person.image_url %>" class="img-responsive-events-index" alt="A picture has not been created for this important person.">
 
+    </div>
+
+    <div class="col-md-5 col-sm-5" id="events-index-info">
+      
+      <h1><%= event.pretty_date %></h1> 
+      
+      <% if event.reminder == nil %>
+        <p><%= link_to "Add Reminder", "/events/#{event.id}/edit" %></p>
+      <% else %>
+        <p><b>Reminder Scheduled: </b><%= event.pretty_reminder %></p>
+      <% end %>
+
+      <% if event.description == "" %>
+        <p><%= link_to "Add Description", "/events/#{event.id}/edit" %></p>
+      <% else %>
+        <p> <%= event.description %></p>
+      <% end %>
+
+      <a class="btn btn-primary" href="/events/<%=event.id%>" id="events-index-button">View Event Details</a>
+
+    </div>
+
+    <div class="row" id="events-index-ned">
+      <div class="col-md-7 col-sm-7">
+        <p><%= link_to "New", "/events/new" %>
+        <%= link_to "Edit", "/events/#{event.id}/edit" %>
+        <%= link_to "Delete", "/events/#{event.id}", method: :delete, data:{confirm: "Are you sure you want to delete this event?"} %></p>
+      </div>
+    </div>
+
+    </div>
+  </div>
 <% end %>

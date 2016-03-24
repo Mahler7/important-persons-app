@@ -1,33 +1,42 @@
-<h1>Edit an Event</h1>
+<div class="col-md-12 col-sm-12" id="events-form-header">
+  <h1>Edit an Event</h1>
+</div>
 
 <%= form_tag "/events/#{@event.id}", method: :patch do %>
+  
+  <div class="events-form-container">
 
-  <div class="event-name">
-    <%= label_tag :name %>
-    <%= select_tag(:name, options_for_select([['Anniversary'], ['Baptism'], ['Bar mitzvah'], ['Bat mitzvah'], ['Birthday'], ['Christmas'], ['Communion'], ['Easter'], ['Father\'s Day'], ['Graduation'], ['Mother\'s Day'], ['New Year\'s'], ['Sweetest Day'], ['Thanksgiving'], ['Valentine\'s Day'], ['Wedding'], ['Other']], @event.name)) %>
-    <%= text_field_tag :option_name, @event.name %>
+    <div class="row" id="events-form-row">
+
+      <div class="col-md-6 col-sm-6" id="events-form-item-name">
+        <%= label_tag :name %>
+        <%= select_tag(:name, options_for_select([['Anniversary'], ['Baptism'], ['Bar mitzvah'], ['Bat mitzvah'], ['Birthday'], ['Christmas'], ['Communion'], ['Easter'], ['Father\'s Day'], ['Graduation'], ['Mother\'s Day'], ['New Year\'s'], ['Sweetest Day'], ['Thanksgiving'], ['Valentine\'s Day'], ['Wedding'], ['Other']], @event.name), :id => "events-form-item-name-field") %>  
+      </div>
+
+      <div class="col-md-6 col-sm-6" id="events-form-ip">
+        <%= label_tag "Event for" %>
+        <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name", @event.important_person.full_name), :id => "events-form-ip-field") %>
+      </div>
+
+      <div class="col-md-6 col-sm-6" id="events-form-date">
+        <%= label_tag :date %>
+        <%= date_field :event, :date, :id => "events-form-date-field" %>
+      </div>
+
+      <div class="col-md-6 col-sm-6" id="events-form-reminder">
+        <%= label_tag :reminder %>
+        <%= datetime_local_field :event, :reminder, required: true, :id => "events-form-reminder-field" %>
+      </div>
+
+      <div class="col-md-12 col-sm-12" id="events-form-description">
+        <%= label_tag :description %>
+        <%= text_field_tag :description, @event.description, :id => "events-form-description-field" %>
+      </div>
+
+      <div class="col-md-12 col-sm-12" id="events-form-submit">
+        <%= submit_tag "Edit Event", class: "btn btn-primary", id: "events-form-button" %>
+      </div>
+
+    </div>
   </div>
-
-  <div class="event-date">
-    <%= label_tag :date %>
-    <%= date_field :event, :date %>
-  </div>
-
-  <div class ="event-reminder">
-    <%= label_tag :reminder %>
-    <%= datetime_local_field :event, :reminder, required: true %>
-  </div>
-
-  <div class="event-description">
-    <%= label_tag :description %>
-    <%= text_field_tag :description, @event.description %>
-  </div>
-
-  <div>
-    <%= label_tag "Select Important Person the Event is for" %>
-    <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name")) %>
-  </div>
-
-  <%= submit_tag "Edit Event" %>
-
 <% end %>

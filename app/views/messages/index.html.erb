@@ -10,22 +10,24 @@
 
   <% if current_user.id == message.important_person.user_id %>
     
-    <div class="col-md-7 col-sm-7" id="messages-index-info">
+    <div class="col-md-7 col-sm-7" id="messages-index-image">
       <h1><%= link_to message.important_person.full_name, "/important_persons/#{message.important_person.id}" %></h1>
 
-      <img class="img-responsive-messages-index" src="<%= message.important_person.image_url %>" alt="An image has not been added for this important person">
+      <img class="img-responsive-messages-index" src="<%= message.important_person.image_url %>" alt= "An image has not been added for this important person">
     </div>
 
     <div class="col-md-5 col-sm-5" id="messages-index-info">
 
       <h1><%= link_to message.title, "/messages/#{message.id}" %></h1>
-      <p><bold>Message Type: </bold><%= message.message_capitalize %></p>
+      <p><b>Message Type: </b><%= message.message_capitalize %></p>
       
       <% if message.scheduled_time == nil %>
         <p><%= link_to "Add Scheduled Time", "/messages/#{message.id}" %></p>
       <% else %>
-        <p><%= message.pretty_scheduled_time %></p>
+        <p><b>Message Scheduled at: </b><%= message.pretty_scheduled_time %></p>
       <% end %>
+
+      <a class="btn btn-primary" href="/messages/<%=message.id%>" id="messages-index-button">View Message</a>
     </div>
         
     <div class="row" id="messages-index-ned">
@@ -37,7 +39,7 @@
     </div>
 
   <% end %>
-    </div>
+    
   </div>
 </div>
   

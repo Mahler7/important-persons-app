@@ -22,15 +22,9 @@ class WishlistItemsController < ApplicationController
       item_url: params[:item_url],
       image_url: params[:image_url],
       description: params[:description],
-      favorite: params[:favorite],
+      favorite: params[:favorite] || 0,
       important_person_id: params[:important_person_id]
       })
-
-    if params[:favorite] == nil
-      fave = false
-    else
-      fave = true
-    end
 
     if @wishlist_item.save
       flash[:success] = "New Wishlist Item Created"
@@ -74,10 +68,11 @@ class WishlistItemsController < ApplicationController
       favorite: fave,
       important_person_id: params[:important_person_id]
       })
+      
       flash[:success] = "Wishlist Item Information Changed"
       redirect_to "/wishlist_items/#{@wishlist_item.id}"
     else
-      flash[:warning] = "Wishlist Item Information Changed"
+      flash[:warning] = "Wishlist Item Was NOT Changed"
       render :edit
     end
 

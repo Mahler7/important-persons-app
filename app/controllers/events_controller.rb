@@ -25,18 +25,22 @@ class EventsController < ApplicationController
 
   def create
     
-    @event = Event.create({
+    @event = Event.new({
     name: set_name, 
     description: params[:description], 
     date: params[:event][:date], 
     reminder: Time.parse(params[:event][:reminder]), 
     important_person_id: params[:important_person_id]})
 
-    send_reminder(@event)
-
-    flash[:success] = "Event Created"
-
-    redirect_to "/events/#{@event.id}"
+    
+    if @event.save
+      send_reminder(@event)
+      flash[:success] = "Event Created"
+      redirect_to "/events/#{@event.id}"
+    else
+      flash[:warning] = "Event Was NOT Created"
+      render :new
+    end
 
   end
 
@@ -61,18 +65,20 @@ class EventsController < ApplicationController
 
     @event = Event.find(params[:id])
 
-    @event.update({
+    if @event.update({
       name: set_name,
       description: params[:description], 
       date: params[:event][:date], 
       reminder: Time.parse(params[:event][:reminder]), 
       important_person_id: params[:important_person_id]})
 
-    send_reminder(@event)
-
-    flash[:success] = "Event Updated"
-
-    render :show
+      send_reminder(@event)
+      flash[:success] = "Event Updated"
+      redirect_to "/events/#{@event.id}"
+    else
+      flash[:warning] = "Event Was NOT Updated"
+      render :show
+    end
 
   end
 

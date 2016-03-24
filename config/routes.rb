@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/events/:id/edit' => 'events#edit'
   patch '/events/:id' => 'events#update'
   delete '/events/:id' => 'events#destroy'
-  post '/events/reminder/:id' => 'events#reminder'
+  get '/events/reminder/:id' => 'events#reminder'
 
   get '/wishlist_items' => 'wishlist_items#index'
   get '/wishlist_items/new' => 'wishlist_items#new'

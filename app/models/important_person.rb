@@ -8,7 +8,7 @@ class ImportantPerson < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :user_id, presence: true
-  validates :phone_number, numericality: true
+  validates :phone_number, numericality: true, length: {is: 10}
 
   def full_name
 

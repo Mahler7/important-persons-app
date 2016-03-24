@@ -1,3 +1,15 @@
+<% if @important_person.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@important_person.errors.count, "error") %> prohibited this important person from being saved:</h2>
+ 
+    <ul>
+    <% @important_person.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <div class="col-md-12 col-sm-12" id="ip-form-header">
   <h1>Add an Important Person</h1>
 </div>

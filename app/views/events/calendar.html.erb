@@ -1,9 +1,12 @@
-<%= month_calendar events: @events do |date, events| %>
-  <%= date %>
+<div class="calendar">
+  <%= month_calendar events: @events do |date, events| %>
+    <b><%= date.strftime("%B %d") %></b>
 
-  <% events.each do |event| %>
-    <div>
-      <%= event.date %>
-    </div>
+    <% events.each do |event| %>
+      <div>
+        <%= link_to event.name + " for " + event.important_person.full_name, "/events/#{event.id}" %>
+        <%= link_to "Reminder at " + event.reminder_time + " for " + event.important_person.full_name + "\'s " + event.name  %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

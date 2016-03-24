@@ -2,9 +2,9 @@
   <h1>Wishlist Item for <%= @wishlist_item.important_person.full_name %></h1>
 </div>
 
-<div class="ip-show-container">
+<div class="wishlist-show-container">
 
-  <div class="row" id="ip-show-row">
+  <div class="row" id="wishlist-show-row">
 
     <div class="col-md-8" id="wishlist-show-left">
       <h1><%= @wishlist_item.item_name %></h1>
@@ -12,7 +12,7 @@
       <% if @wishlist_item.image_url == "" %>
         <p><%= link_to "Add Image URL", "/wishlist_items/#{@wishlist_item.id}/edit" %></p>
       <% else %>
-        <img src ="<%= @wishlist_item.image_url %>" class="img-responsive-wishlist-show">
+        <img src ="<%= @wishlist_item.image_url %>" class="img-responsive-wishlist-show" alt="A picture has not been added for this item.">
       <% end %>
 
       <p><%= link_to "Return to #{@wishlist_item.important_person.full_name}\'s Profile", "/important_persons/#{@wishlist_item.important_person.id}" %></p>

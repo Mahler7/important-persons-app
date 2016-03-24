@@ -48,7 +48,7 @@
 }
 
 //----------------------INDEX-----------------------
-//-----------------------------------------------------
+//---------------------------------------------------
 
 .messages-index-container {
   padding-bottom: 40px;
@@ -60,23 +60,272 @@
   padding-bottom: 60px;
   color: #34495E;
 }
-#messages-index-info {
+#messages-index-image {
   text-align: center;
+}
+
+#messages-index-image h1 {
+  padding-bottom: 30px;
+}
+
+.img-responsive-messages-index {
+  max-height: 300px;
+  max-width: 450px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#messages-index-info {
+  font-size: 18px;
+}
+
+#messages-index-info h1 {
+  padding-bottom: 30px;
+}
+
+#messages-index-button {
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+}
+
+#messages-index-ned {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 20;
+  padding-bottom: 20px;
+}
+
+//------------------NEW/EDIT--------------------
+//-------------------------------------------------
+
+.email-form-container {
+  padding-bottom: 40px;
+}
+
+#email-form-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#email-form-info {
+  text-align: center;
+}
+
+#email-form-ip-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 200px;
+}
+
+.email-form-ip {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#email-form-scheduled-time-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-form-scheduled-time {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#email-form-template-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 200px;
+}
+
+.email-form-template {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.email-form-title-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-form-title {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#email-form-message-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  height: 300px;
+  font-size: 16px;
+}
+
+.email-form-message {
+  font-size: 24px;
+  display: inline-block;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+#email-form-submit {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#email-form-button {
+ background-color: #28ABCC;
+ font-size: 24px;
+ color: white;
 }
 
 
 
 
+.text-form-container {
+  padding-bottom: 40px;
+}
 
+#text-form-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
 
+#text-form-info {
+  text-align: center;
+}
 
+#text-form-ip-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 200px;
+}
 
+.text-form-ip {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
 
+#text-form-scheduled-time-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.text-form-scheduled-time {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
 
+.text-form-title-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.text-form-title {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
 
+#text-form-message-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 250px;
+  font-size: 16px;
+}
 
+.text-form-message {
+  font-size: 24px;
+  display: inline-block;
+  padding-bottom: 20px;
+  text-align: center;
+}
 
+#text-form-submit {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#text-form-button {
+ background-color: #28ABCC;
+ font-size: 24px;
+ color: white;
+}
+
+//---------------------SHOW---------------------
+//-------------------------------------------------
+
+.messages-show-container {
+  padding-bottom: 40px;
+}
+
+#messages-show-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.img-responsive-messages-show {
+  max-height: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#messages-show-left {
+  text-align: center;
+  font-size: 18px;
+}
+
+#messages-show-left p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#messages-show-info {
+  font-size: 18px;
+  justify-content: center;
+}
+
+#messages-show-info h1 {
+  padding-bottom: 20px;
+}
 
 

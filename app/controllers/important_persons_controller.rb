@@ -15,30 +15,33 @@ class ImportantPersonsController < ApplicationController
 
   def new
 
+    @important_person = ImportantPerson.new
+
   end
 
   def create
+    
+    ip = params[:phone_number]
+    if ip.chars.first == "1" && ip.size > 10
+      ip.slice!(0)
+    end
 
     @important_person = ImportantPerson.new({
       first_name: params[:first_name], 
       last_name: params[:last_name], 
       email: params[:email], 
-      phone_number: params[:phone_number], 
+      phone_number: ip, 
       image_url: params[:image_url],
       user_id: current_user.id})
 
-    ip = params[:phone_number]
-    if ip.chars.first == "1" && ip.size > 9
-      ip.slice![0]
-      if @important_person.save
-        flash[:success] = "New Person Created"
-        redirect_to "/important_persons"
-      else
-        flash[:warning] = "New Person Was NOT Created"
-        render :new
-      end
+    
+    if @important_person.save
+      flash[:success] = "New Person Created"
+      redirect_to "/important_persons"
+    else
+      flash[:warning] = "New Person Was NOT Created"
+      render :new
     end
-    p ip
   end
 
   def show

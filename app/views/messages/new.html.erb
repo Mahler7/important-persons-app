@@ -1,103 +1,102 @@
-
-
 <% if @message_type == "email" %>
 
+<div class="col-md-12 col-sm-12" id="email-form-header">
   <h1>Send A New Email</h1>
+</div>
 
   <%= form_tag "/messages", method: :post do %>
-    
-    <div class="title">
-      <%= label_tag :title %>
-      <%= text_field_tag :title %>
+    <div class="email-form-container">
+
+      <div class="row" id="email-form-row">
+
+        <div class="col-md-6 col-sm-6" id="email-form-info">
+
+          <div class="email-form-title">
+            <%= label_tag :title %><br>
+            <%= text_field_tag :title, '', :id => "email-form-title-field" %>
+          </div><br>
+
+          <div class="email-form-scheduled-time">
+            <%= label_tag :scheduled_time %>
+            <%= datetime_local_field :message, :scheduled_time, required: true, :id => "email-form-scheduled-time-field"%>
+          </div><br>
+
+          <div class="email-form-ip">
+            <%= label_tag "Message for" %>
+            <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name"), :id => "email-form-ip-field") %>
+          </div><br>
+
+          <div class="email-form-template">
+            <%= label_tag :email_template %>
+            <%= select_tag(:email_template, options_for_select([['Regular'], ['Birthday'], ['Christmas'], ['Wedding']]), :id => "email-form-template-field") %>
+          </div>
+
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+
+          <div class="email-form-message">
+            <%= label_tag :user_message %>
+            <%= text_area_tag :user_message, '', :id => "email-form-message-field" %>
+          </div>
+        
+        </div>
+
+        <div class="col-md-12 col-sm-12" id="email-form-submit">
+          <%= hidden_field_tag :message_format, :email %>
+          <%= submit_tag "Save Email", class: "btn btn-primary", id: "email-form-button" %>
+        </div>
+
+      <% end %>
+      </div>
     </div>
-
-    <div class="message">
-      <%= label_tag :user_message %>
-      <%= text_field_tag :user_message %>
-    </div>
-
-    <div class="message-format">
-      <%= label_tag :email_template %>
-      <%= select_tag(:email_template, options_for_select([['Regular'], ['Birthday'], ['Christmas'], ['Wedding']])) %>
-    </div>
-
-    <div class="scheduled-time">
-      <%= label_tag :scheduled_time %>
-      <%= datetime_local_field :message, :scheduled_time, required: true %>
-    </div>
-
-    <div>
-      <%= label_tag "Select Important Person the Message is for" %>
-      <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name")) %>
-    </div>
-
-    <%= hidden_field_tag :message_format, :email %>
-
-    <%= submit_tag "Save Email" %>
-
-  <% end %>
+  </div>
 
 <% elsif @message_type == "text" %>
-  
-  <h1>Send A New Text</h1>
-
-  <div class="title">
-    <%= label_tag :title %>
-    <%= text_field_tag :title %>
+  <div class="col-md-12 col-sm-12" id="text-form-header">
+    <h1>Send A New Text</h1>
   </div>
 
   <%= form_tag "/messages", method: :post do %>
 
-    <div class="message">
-      <%= label_tag :user_message %>
-      <%= text_field_tag :user_message %>
+  <div class="text-form-container">
+
+    <div class="row" id="text-form-row">
+
+      <div class="col-md-6 col-sm-6" id="text-form-info">
+
+        <div class="text-form-title">
+          <%= label_tag :title %><br>
+          <%= text_field_tag :title, '', :id => "text-form-title-field" %>
+        </div><br>
+
+        <div class="text-form-scheduled-time">
+          <%= label_tag :scheduled_time %>
+          <%= datetime_local_field :message, :scheduled_time, :id => "text-form-scheduled-time-field" %>
+        </div><br>
+
+        <div class="text-form-ip">
+          <%= label_tag "Message for" %>
+          <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name"), :id => "text-form-ip-field") %>
+        </div>
+
+      </div>
+      
+        <div class="col-md-6 col-sm-6">
+
+          <div class="text-form-message">
+            <%= label_tag :user_message %>
+            <%= text_area_tag :user_message, '', :id => "text-form-message-field" %>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12" id="text-form-submit">
+          <%= hidden_field_tag :message_format, :text %>
+          <%= submit_tag "Save Text", class: "btn btn-primary", id: "text-form-button" %>
+        </div>
+      </div>
     </div>
-
-    <div class="scheduled-time">
-      <%= label_tag :scheduled_time %>
-      <%= datetime_local_field :message, :scheduled_time %>
-    </div>
-
-    <div>
-      <%= label_tag "Select Important Person the Message is for" %>
-      <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name")) %>
-    </div>
-
-    <%= hidden_field_tag :message_format, :text %>
-
-    <%= submit_tag "Save Text" %>
-
-  <% end %>
-
-<% elsif @message_type = "tweet" %>
-  
-  <h1>Send A New Tweet</h1>
-
-  <%= form_tag "/messages", method: :post do %>
-
-    <div class="title">
-      <%= label_tag :title %>
-      <%= text_field_tag :title %>
-    </div>
-
-    <div class="message">
-      <%= label_tag :user_message %>
-      <%= text_field_tag :user_message %>
-    </div>
-
-    <div class="scheduled-time">
-      <%= label_tag :scheduled_time %>
-      <%= datetime_local_field :message, :scheduled_time %>
-    </div>
-
-    <div>
-      <%= label_tag "Select Important Person the Message is for" %>
-      <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name")) %>
-    </div>
-
-    <%= hidden_field_tag :message_format, :tweet %>
-
-    <%= submit_tag "Save Tweet" %>
+  </div>
 
   <% end %>
 

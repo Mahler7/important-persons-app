@@ -18,13 +18,5 @@
     </a>
   </div>
 
-  <div class="col-md-12" id="new-tweet-area">
-      <%= form_tag '/messages/new', method: :get do %>
-        <%= hidden_field_tag :message_format, :tweet %>
-        <%= submit_tag "Create New Tweet", class: "btn btn-primary", id: "new-tweet-button" %>
-      <% end %>
-    </a>
-  </div>
-
 </div>
 

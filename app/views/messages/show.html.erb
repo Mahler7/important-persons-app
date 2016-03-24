@@ -1,40 +1,31 @@
-<h1>Message for <%= @message.important_person.full_name %></h1>
-
-<img src="<%= @image %>" class="img-responsive">
-<h3> <%= @message.title %></h3>
-<p> <%= @message.message_capitalize %></p>
-<p> <%= @message.user_message %></p>
-
-<% if @message.scheduled_time == nil %>
-  <p><%= link_to "Add Scheduled Time", "/messages/#{@message.id}/edit" %></p>
-<% else %>
-  <p> <%= @message.pretty_scheduled_time %> </p>
-<% end %>
-
-<% if @message.message_format == "email" %>
-
-  <%= link_to "Send Email Now", "/messages/send_email/#{@message.id}", method: :get %>
-
-  <%= link_to "Send Email Later", "/messages/send_email_later/#{@message.id}", method: :get %>
-
-<% elsif @message.message_format == "text" %>
-  
-  <%= link_to "Send Text Now", "/messages/send_sms/#{@message.id}", method: :get %>
-
-  <%= link_to "Send Text Later", "/messages/send_sms_later/#{@message.id}", method: :get %>
-
-<% elsif @message.message_format == "tweet" %>
-
-  <%= link_to "Send Tweet Now", "/messages/send_tweet/#{@message.id}", method: :get %>
-
-<% end %>
-
-<div>
-  <%= link_to "New", "/messages/select" %>
-  <%= link_to "Edit", "/messages/#{@message.id}/edit" %>
-  <%= link_to "Delete", "/messages/#{@message.id}", method: :delete, data:{confirm: "Are you sure you want to delete this wishlist?"} %>
+<div class="col-md-12 col-sm-12" id="messages-show-header">
+  <h1>Message for <%= @message.important_person.full_name %></h1>
 </div>
 
-<div>
-  <%= link_to "Return to #{@message.important_person.full_name}\'s Profile", "/important_persons/#{@message.important_person.id}" %>
+<div class="messages-show-container">
+
+  <div class="row" id="messages-show-row">
+
+    <div class="col-md-8" id="messages-show-left">
+      <img src="<%= @image %>" class="img-responsive-messages-show" alt="An image has not been added for this important person">
+
+      <p><%= link_to "Return to #{@message.important_person.full_name}\'s Profile", "/important_persons/#{@message.important_person.id}" %></p>
+    </div>
+
+    <div class="col-md-4" id="messages-show-info">
+      <h1> <%= @message.title %></h1>
+      <p><b> Message Type: </b><%= @message.message_capitalize %></p>
+      <% if @message.scheduled_time == nil %>
+        <p><%= link_to "Add Scheduled Time", "/messages/#{@message.id}/edit" %></p>
+      <% else %>
+        <p><b>Message Scheduled at: </b><br> <%= @message.pretty_scheduled_time %> </p>
+      <% end %>
+
+      <p><b> Message: </b><br><%= @message.user_message %></p>
+
+      <p><span><%= link_to "Edit", "/messages/#{@message.id}/edit" %> &nbsp
+      <%= link_to "Delete", "/messages/#{@message.id}", method: :delete, data:{confirm: "Are you sure you want to delete this wishlist?"} %></span></p>
+    </div>
+
+  </div>
 </div>

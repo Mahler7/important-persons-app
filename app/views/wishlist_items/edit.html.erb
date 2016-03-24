@@ -30,7 +30,7 @@
 
       <div class="col-md-6 col-sm-6" id="wishlist-form-ip">
         <%= label_tag "Select Important Person the Event is for" %>
-        <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name"), :id => "wishlist-form-ip-field") %>
+        <%= select_tag(:important_person_id, options_from_collection_for_select(@user, "id", "full_name", @wishlist_item.important_person.full_name), :id => "wishlist-form-ip-field") %>
       </div>
 
       <div class="col-md-6 col-sm-6" id="wishlist-form-favorite">

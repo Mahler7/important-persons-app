@@ -15,7 +15,7 @@
         <% if wishlist_item.image_url == "" %>
           <p><%= link_to "Add Image URL", "/wishlist_items/#{wishlist_item.id}/edit" %></p>
         <% else %>
-          <img class="img-responsive-wishlist-index" src ="<%= wishlist_item.image_url %>">
+          <img class="img-responsive-wishlist-index" src ="<%= wishlist_item.image_url %>" alt="A picture has not been created for this item">
         <% end %>
 
       </div>

@@ -7,7 +7,7 @@ class Message < ActiveRecord::Base
 
   def pretty_scheduled_time
 
-    "#{scheduled_time.strftime("%A %B %e %Y %I %M %p ")}"
+    "#{scheduled_time.strftime("%A %B %e %Y %l %M %p ")}"
 
   end
 

@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def index
     
     @messages = current_user.messages.order(:important_person_id)
-    
+
   end
 
   def message_select
@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
 
   def create
 
-    @message = Message.create({
+    @message = Message.new({
       title: params[:title],
       user_message: params[:user_message],
       message_format: params[:message_format],
@@ -34,15 +34,20 @@ class MessagesController < ApplicationController
       scheduled_time: Time.parse(params[:message][:scheduled_time]),
       important_person_id: params[:important_person_id]})
 
-    if params[:message_format] == "text"
-      text_later(@message)
-    elsif params[:message_format] == "email"
-      email_later(@message)
+    if @message.save
+      if params[:message_format] == "text"
+        text_later(@message)
+        flash[:success] = "Message Created"
+        redirect_to "/messages/#{@message.id}"
+      elsif params[:message_format] == "email"
+        email_later(@message)
+        flash[:success] = "Message Created"
+        redirect_to "/messages/#{@message.id}"
+      end
+    else
+      flash[:warning] = "Message Was NOT Created"
+      render :new
     end
-
-    flash[:success] = "Message Created"
-
-    redirect_to "/messages/#{@message.id}"
 
   end
 
@@ -65,7 +70,7 @@ class MessagesController < ApplicationController
 
     @message = Message.find(params[:id])
 
-    @message.update({
+    if @message.update({
       title: params[:title],
       user_message: params[:user_message],
       message_format: params[:message_format],
@@ -73,15 +78,19 @@ class MessagesController < ApplicationController
       scheduled_time: Time.parse(params[:message][:scheduled_time]),
       important_person_id: params[:important_person_id]})
 
-    flash[:success] = "Message Updated"
-
-    if params[:message_format] == "text"
-      text_later(@message)
-    elsif params[:message_format] == "email"
-      email_later(@message)
+      if params[:message_format] == "text"
+        text_later(@message)
+        flash[:success] = "Message Updated"
+        redirect_to "/messages/#{@message.id}"
+      elsif params[:message_format] == "email"
+        email_later(@message)
+        flash[:success] = "Message Updated"
+        redirect_to "/messages/#{@message.id}"
+      end
+    else
+      flash[:warning] = "Message Information Was NOT Changed"
+      render :edit
     end
-
-    render :show
 
   end
 

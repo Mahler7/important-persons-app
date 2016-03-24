@@ -19,6 +19,12 @@ class Event < ActiveRecord::Base
     reminder.strftime("%A %B %e %Y %I %M %p")
 
   end
+
+  def reminder_time
+
+    reminder.strftime("%l:%M %p")
+
+  end
   
   
   def start_time

@@ -1,35 +1,41 @@
-<h1> <%= @event.name %></h1>
-
-<% if @event.important_person %>
-  <img src="<%= @event.important_person.image_url %>" class="img-responsive">
-<% end %>
-
-<%= link_to "Schedule Reminder", "/events/reminder/#{@event.id}", method: :post %>
-
-<h4>Date: <%= @event.pretty_date %></h4> 
-
-<div>
-  <% if @event.reminder == nil %>
-    <%= link_to "Add Reminder", "/events/#{@event.id}/edit" %>
-  <% else %>
-    <h4>Reminder Scheduled: <%= @event.pretty_reminder %></h4>
-  <% end %>
+<div class="col-md-12 col-sm-12" id="events-show-header">
+  <h1> <%= "Event for " + @event.important_person.full_name %></h1>
 </div>
 
-<div>
-  <% if @event.description == "" %>
-    <h4><%= link_to "Add Description", "/events/#{@event.id}/edit" %></h4>
-  <% else %>
-    <p> <%= @event.description %></p>
-  <% end %>
-</div>
+<div class="events-show-container">
 
-<div>
-  <%= link_to "Add New Event", "/events/new" %>
-  <%= link_to "Edit", "/events/#{@event.id}/edit" %>
-  <%= link_to "Delete", "/events/#{@event.id}", method: :delete, data:{confirm: "Are you sure you want to delete this event?"} %>
-</div>
+  <div class="row" id="events-show-row">
 
-<div>
-  <%= link_to "Return to #{@event.important_person.full_name}\'s Profile", "/important_persons/#{@event.important_person.id}" %>
+    <div class="col-md-8 " id="events-show-left">
+
+      <h1><%= @event.name %></h1> 
+      
+      <img src="<%= @event.important_person.image_url %>" class="img-responsive-events-show" alt="A picture has not been created for this important person.">
+
+      <p><%= link_to "Return to #{@event.important_person.full_name}\'s Profile", "/important_persons/#{@event.important_person.id}" %></p>
+
+    </div>    
+
+    <div class="col-md-4" id="events-show-info">
+      <h1><%= @event.pretty_date %></h1>
+      <% if @event.reminder == nil %>
+        <%= link_to "Add Reminder", "/events/#{@event.id}/edit" %>
+      <% else %>
+        <p><b>Reminder Scheduled: </b><br><%= @event.pretty_reminder %></p>
+      <% end %>
+   
+      <% if @event.description == "" %>
+        <p><%= link_to "Add Description", "/events/#{@event.id}/edit" %></p>
+      <% else %>
+        <p><b>Description: </b><br><%= @event.description %></p>
+      <% end %>
+
+      <p><span><%= link_to "Edit", "/events/#{@event.id}/edit" %> &nbsp
+      <%= link_to "Delete", "/events/#{@event.id}", method: :delete, data:{confirm: "Are you sure you want to delete this event?"} %></span></p>
+
+      <a class="btn btn-primary" href="/events/calendar" id="events-show-button">View Calendar</a>
+
+    </div>
+
+  </div>
 </div>

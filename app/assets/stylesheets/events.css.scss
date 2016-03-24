@@ -1,0 +1,259 @@
+//-----------------SIMPLE CALENDAR------------------
+//----------------------------------------------------
+
+.simple-calendar p {
+  font-size: 24px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.simple-calendar {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+}
+
+.days {
+  border: 10px solid #18667a;
+}
+
+.days th {
+  border: 5px solid #18667a;
+  text-align: center;
+}
+
+.dates {
+  border: 10px solid #18667a;
+  text-align: center;
+}
+
+.dates tr {
+  border: 5px solid #18667a;
+}
+
+.dates td {
+  border: 5px solid #18667a;
+}
+
+//---------------------INDEX---------------------
+//--------------------------------------------------
+
+#events-index-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  color: #34495E;
+}
+
+.events-index-container {
+  padding-bottom: 40px;
+}
+
+.img-responsive-events-index {
+  max-height: 300px;
+  max-width: 450px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events-index-item h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#events-index-item {
+  text-align: center;
+}
+
+#events-index-info {
+  text-align: center;
+}
+
+#events-index-info p {
+  font-size: 18px;
+}
+
+#events-index-info h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#events-index-button {
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+}
+
+#events-index-ned p {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+//-----------------NEW/EDIT--------------------
+//------------------------------------------------
+
+.events-form-container {
+  padding-bottom: 40px;
+}
+
+#events-form-header {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#events-form-item-name-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events-form-item-name {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#events-form-ip-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+  height: 200px;
+}
+
+#events-form-ip {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#events-form-date-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events-form-date {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#events-form-reminder-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events-form-reminder {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#events-form-description-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events-form-description {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+#events-form-submit {
+  padding-top: 40px;
+  text-align: center;
+}
+
+#events-form-button {
+ background-color: #28ABCC;
+ font-size: 24px;
+ color: white;
+}
+
+//--------------------SHOW--------------------
+//-----------------------------------------------
+
+.events-show-container {
+  padding-bottom: 40px;
+}
+
+
+#events-show-header {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.img-responsive-events-show {
+  max-height: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  border: 15px solid #18667a;
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#events-show-left {
+  text-align: center;
+}
+
+#events-show-left h1 {
+  padding-bottom: 20px;
+}
+
+#events-show-info h1 {
+  padding-bottom: 20px;
+}
+
+#events-show-left p {
+  font-size: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+#events-show-info {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 400px;
+}
+
+#events-show-info span {
+  padding-top: 20px;
+}
+
+#events-show-button {
+  background-color: #28ABCC;
+  font-size: 24px;
+  color: white;
+  display: block;
+  // margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+
+
+
