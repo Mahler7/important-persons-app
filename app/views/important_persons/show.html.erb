@@ -13,7 +13,7 @@
     <div class="col-md-4" id="ip-show-info"> 
       <h3>Email: <span><%= @important_person.email %></span></h3>
       <h3>Phone: <span><%= @important_person.phone_number %></span></h3>
-      <p><span><%= link_to "Edit Person", "/important_persons/#{@important_person.id}" %> &nbsp
+      <p><span><%= link_to "Edit Person", "/important_persons/#{@important_person.id}/edit" %> &nbsp
         <%= link_to "Delete Person", "/important_persons/#{@important_person.id}", method: :delete, data:{confirm: "Are you sure you want to delete this person?"} %></span></p>
     </div>
 

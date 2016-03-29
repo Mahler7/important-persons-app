@@ -111,7 +111,6 @@ class MessagesController < ApplicationController
     message = Message.find(params[:id])
     UserMailer.email_message(message).deliver_now
     @user = current_user.important_persons
-    byebug
     render :show
 
   end
@@ -174,8 +173,7 @@ class MessagesController < ApplicationController
     start_date = DateTime.current
     time = (end_date - start_date).to_i
     SmsJob.set(wait: time).perform_later(important_person_phone, message_sent)
-    p end_date
-    p start_date
+
 
   end
 

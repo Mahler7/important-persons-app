@@ -20,11 +20,9 @@ class EventsController < ApplicationController
     @event = Event.find_by(id: params[:important_person_id])
     @user = current_user.important_persons
 
-
   end
 
   def create
-    
     @event = Event.new({
     name: set_name, 
     description: params[:description], 
